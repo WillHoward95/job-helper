@@ -2,8 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   jobs: [
-    { job: "bartender", pros: [], cons: [] },
-    { job: "makeup artist", pros: [], cons: [] },
+    { job: "bartender", pros: [], cons: [], prosTotal: 0, consTotal: 0 },
+    { job: "makeup artist", pros: [], cons: [], prosTotal: 0, consTotal: 0 },
   ],
   pros: [
     { pro: "good hours", weight: 10 },
@@ -33,16 +33,39 @@ export const jobSlice = createSlice({
     },
     addPro: (state, action) => {
       const jobObject = state.jobs.find((element) => {
-        console.log(action.payload.job);
         return action.payload.job === element.job;
       });
 
-      // console.log(jobObject);
+      jobObject.pros.push(action.payload.pro);
+      jobObject.prosTotal += action.payload.weight;
+    },
+    addCon: (state, action) => {
+      const jobObject = state.jobs.find((element) => {
+        return action.payload.job === element.job;
+      });
+
+      jobObject.cons.push(action.payload.con);
+      jobObject.consTotal += action.payload.weight;
+    },
+    removePro: (state, action) => {
+      const jobObject = state.jobs.find((element) => {
+        return action.payload.job === element.job;
+      });
+
+      // const indexOf = jobObject.pro.findIndex((item) => {
+      //   return item.pro === action.payload.pro;
+      // });
+
+      console.log(jobObject.pros);
+
+      // jobObject.pros.push(action.payload.pro);
+      // jobObject.prosTotal += action.payload.weight;
     },
   },
 });
 
-export const { setNewJob, setNewPro, setNewCon, addPro } = jobSlice.actions;
+export const { setNewJob, setNewPro, setNewCon, addPro, addCon, removePro } =
+  jobSlice.actions;
 
 export const selectJobs = (state) => state.job.jobs;
 export const selectPros = (state) => state.job.pros;

@@ -1,4 +1,9 @@
-import { selectJobs, addPro } from "../../features/job/jobSlice";
+import {
+  selectJobs,
+  addPro,
+  addCon,
+  removePro,
+} from "../../features/job/jobSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 
@@ -8,9 +13,26 @@ const QuestionnaireElement = (props) => {
   const { pro, weight, con } = props;
   let [checkboxBoolean, setCheckboxBoolean] = useState(false);
 
-  const handleChange = (job, pro, con, weight) => {
-    dispatch(addPro({ job: job, pro: pro, weight: weight }));
-    // console.log(job, pro, con, weight);
+  const handleChangeAdd = (job, pro, con, weight) => {
+    if (pro) {
+      console.log(job, pro, weight);
+      dispatch(addPro({ job: job, pro: pro, weight: weight }));
+    }
+    if (con) {
+      console.log(job, con, weight);
+      dispatch(addCon({ job: job, con: con, weight: weight }));
+    }
+  };
+
+  const handleChangeRemove = (job, pro, con, weight) => {
+    if (pro) {
+      console.log(job, pro, weight);
+      dispatch(removePro({ job: job, pro: pro, weight: weight }));
+    }
+    if (con) {
+      console.log(job, con, weight);
+      // dispatch(addCon({ job: job, con: con, weight: weight }));
+    }
   };
 
   return (
@@ -22,9 +44,12 @@ const QuestionnaireElement = (props) => {
             <input
               type="checkbox"
               onChange={() => {
-                console.log(item.job, con, pro, weight);
                 setCheckboxBoolean(!checkboxBoolean);
-                handleChange(item.job, pro, con, weight);
+                if (!checkboxBoolean) {
+                  handleChangeAdd(item.job, pro, con, weight);
+                } else {
+                  handleChangeRemove(item.job, pro, con, weight);
+                }
               }}
             />
           </div>
