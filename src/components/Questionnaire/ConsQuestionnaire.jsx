@@ -13,7 +13,7 @@ const ConsQuestionnaire = () => {
           <div key={index}>
             <h2>{item.con}</h2>
             <h2>{item.weight}</h2>
-            <QuestionnaireElement />
+            <QuestionnaireElement con={item.con} weight={item.weight} />
           </div>
         );
       })}

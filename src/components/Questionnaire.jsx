@@ -6,6 +6,7 @@ const Questionnaire = () => {
     <div>
       <ProsQuestionnaire />
       <ConsQuestionnaire />
+      <button>Get Results</button>
     </div>
   );
 };

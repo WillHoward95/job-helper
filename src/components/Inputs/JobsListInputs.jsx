@@ -12,7 +12,7 @@ const JobsListInputs = () => {
     <div>
       <h1>List of Jobs</h1>
       {jobs.map((item, index) => {
-        return <h2 key={index}>{item}</h2>;
+        return <h2 key={index}>{item.job}</h2>;
       })}
       {inputBoolean ? (
         <textarea
@@ -26,7 +26,7 @@ const JobsListInputs = () => {
       )}
       <button
         onClick={() => {
-          dispatch(setNewJob(newJobInput));
+          dispatch(setNewJob({ job: newJobInput, pros: [], cons: [] }));
           setNewJobInput("");
           setInputBoolean(!inputBoolean);
         }}

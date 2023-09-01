@@ -1,7 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  jobs: ["bartender", "makeup artist"],
+  jobs: [
+    { job: "bartender", pros: [], cons: [] },
+    { job: "makeup artist", pros: [], cons: [] },
+  ],
   pros: [
     { pro: "good hours", weight: 10 },
     { pro: "good pay", weight: 8 },
@@ -28,10 +31,18 @@ export const jobSlice = createSlice({
       state.cons.push(action.payload);
       state.newConInput = "";
     },
+    addPro: (state, action) => {
+      const jobObject = state.jobs.find((element) => {
+        console.log(action.payload.job);
+        return action.payload.job === element.job;
+      });
+
+      // console.log(jobObject);
+    },
   },
 });
 
-export const { setNewJob, setNewPro, setNewCon } = jobSlice.actions;
+export const { setNewJob, setNewPro, setNewCon, addPro } = jobSlice.actions;
 
 export const selectJobs = (state) => state.job.jobs;
 export const selectPros = (state) => state.job.pros;
