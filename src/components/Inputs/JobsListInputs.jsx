@@ -1,17 +1,12 @@
-import {
-  selectJobs,
-  setNewJobInput,
-  selectNewJobInput,
-  setNewJob,
-} from "../../features/job/jobSlice";
+import { selectJobs, setNewJob } from "../../features/job/jobSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 
 const JobsListInputs = () => {
   const dispatch = useDispatch();
   const jobs = useSelector(selectJobs);
-  const newJobInput = useSelector(selectNewJobInput);
   let [inputBoolean, setInputBoolean] = useState(false);
+  let [newJobInput, setNewJobInput] = useState("");
 
   return (
     <div>
@@ -21,8 +16,9 @@ const JobsListInputs = () => {
       })}
       {inputBoolean ? (
         <textarea
+          autoFocus
           onInput={(e) => {
-            dispatch(setNewJobInput(e.target.value));
+            setNewJobInput((newJobInput = e.target.value));
           }}
         ></textarea>
       ) : (
@@ -31,6 +27,7 @@ const JobsListInputs = () => {
       <button
         onClick={() => {
           dispatch(setNewJob(newJobInput));
+          setNewJobInput("");
           setInputBoolean(!inputBoolean);
         }}
       >
