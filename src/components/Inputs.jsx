@@ -9,7 +9,9 @@ const Inputs = () => {
       <JobsListInputs />
       <ProsListInputs />
       <ConsListInputs />
-      <button>Begin questionnaire</button>
+      <a href="/questionnaire">
+        <button>Begin questionnaire</button>
+      </a>
     </div>
   );
 };
