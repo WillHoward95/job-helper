@@ -52,11 +52,11 @@ export const jobSlice = createSlice({
         return action.payload.job === element.job;
       });
 
-      // const indexOf = jobObject.pro.findIndex((item) => {
-      //   return item.pro === action.payload.pro;
-      // });
+      const indexOf = jobObject.pros.findIndex((item) => {
+        return item === action.payload.pro;
+      });
 
-      console.log(jobObject.pros);
+      console.log(indexOf);
 
       // jobObject.pros.push(action.payload.pro);
       // jobObject.prosTotal += action.payload.weight;

@@ -13,6 +13,8 @@ const QuestionnaireElement = (props) => {
   const { pro, weight, con } = props;
   let [checkboxBoolean, setCheckboxBoolean] = useState(false);
 
+  console.log(jobs);
+
   const handleChangeAdd = (job, pro, con, weight) => {
     if (pro) {
       console.log(job, pro, weight);
