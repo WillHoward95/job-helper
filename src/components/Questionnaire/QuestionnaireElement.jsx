@@ -1,41 +1,16 @@
 import {
   selectJobs,
-  addPro,
-  addCon,
-  removePro,
+  addRemovePro,
+  addRemoveCon,
 } from "../../features/job/jobSlice";
 import { useSelector, useDispatch } from "react-redux";
-import { useState } from "react";
 
 const QuestionnaireElement = (props) => {
   const dispatch = useDispatch();
   const jobs = useSelector(selectJobs);
   const { pro, weight, con } = props;
-  let [checkboxBoolean, setCheckboxBoolean] = useState(false);
 
   console.log(jobs);
-
-  const handleChangeAdd = (job, pro, con, weight) => {
-    if (pro) {
-      console.log(job, pro, weight);
-      dispatch(addPro({ job: job, pro: pro, weight: weight }));
-    }
-    if (con) {
-      console.log(job, con, weight);
-      dispatch(addCon({ job: job, con: con, weight: weight }));
-    }
-  };
-
-  const handleChangeRemove = (job, pro, con, weight) => {
-    if (pro) {
-      console.log(job, pro, weight);
-      dispatch(removePro({ job: job, pro: pro, weight: weight }));
-    }
-    if (con) {
-      console.log(job, con, weight);
-      // dispatch(addCon({ job: job, con: con, weight: weight }));
-    }
-  };
 
   return (
     <div>
@@ -46,11 +21,22 @@ const QuestionnaireElement = (props) => {
             <input
               type="checkbox"
               onChange={() => {
-                setCheckboxBoolean(!checkboxBoolean);
-                if (!checkboxBoolean) {
-                  handleChangeAdd(item.job, pro, con, weight);
-                } else {
-                  handleChangeRemove(item.job, pro, con, weight);
+                if (pro) {
+                  dispatch(
+                    addRemovePro({
+                      job: item.job,
+                      pro: pro,
+                      weight: weight,
+                    })
+                  );
+                } else if (con) {
+                  dispatch(
+                    addRemoveCon({
+                      job: item.job,
+                      con: con,
+                      weight: weight,
+                    })
+                  );
                 }
               }}
             />

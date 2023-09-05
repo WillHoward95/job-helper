@@ -31,41 +31,54 @@ export const jobSlice = createSlice({
       state.cons.push(action.payload);
       state.newConInput = "";
     },
-    addPro: (state, action) => {
+    addRemovePro: (state, action) => {
       const jobObject = state.jobs.find((element) => {
         return action.payload.job === element.job;
       });
 
-      jobObject.pros.push(action.payload.pro);
-      jobObject.prosTotal += action.payload.weight;
+      if (jobObject.pros.includes(action.payload.pro)) {
+        const indexOf = jobObject.pros.findIndex((item) => {
+          return item === action.payload.pro;
+        });
+
+        jobObject.pros.splice(indexOf, 1);
+        jobObject.prosTotal -= action.payload.weight;
+      } else {
+        jobObject.pros.push(action.payload.pro);
+        jobObject.prosTotal += action.payload.weight;
+      }
     },
-    addCon: (state, action) => {
+    addRemoveCon: (state, action) => {
       const jobObject = state.jobs.find((element) => {
         return action.payload.job === element.job;
       });
 
-      jobObject.cons.push(action.payload.con);
-      jobObject.consTotal += action.payload.weight;
-    },
-    removePro: (state, action) => {
-      const jobObject = state.jobs.find((element) => {
-        return action.payload.job === element.job;
-      });
+      if (jobObject.cons.includes(action.payload.con)) {
+        const indexOf = jobObject.cons.findIndex((item) => {
+          return item === action.payload.con;
+        });
 
-      const indexOf = jobObject.pros.findIndex((item) => {
-        return item === action.payload.pro;
-      });
-
-      console.log(indexOf);
-
-      // jobObject.pros.push(action.payload.pro);
-      // jobObject.prosTotal += action.payload.weight;
+        jobObject.cons.splice(indexOf, 1);
+        jobObject.consTotal -= action.payload.weight;
+      } else {
+        jobObject.cons.push(action.payload.con);
+        jobObject.consTotal += action.payload.weight;
+      }
     },
   },
 });
 
-export const { setNewJob, setNewPro, setNewCon, addPro, addCon, removePro } =
-  jobSlice.actions;
+export const {
+  setNewJob,
+  setNewPro,
+  setNewCon,
+  addPro,
+  addCon,
+  removePro,
+  removeCon,
+  addRemovePro,
+  addRemoveCon,
+} = jobSlice.actions;
 
 export const selectJobs = (state) => state.job.jobs;
 export const selectPros = (state) => state.job.pros;
