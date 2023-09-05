@@ -26,15 +26,17 @@ const JobsListInputs = () => {
       )}
       <button
         onClick={() => {
-          dispatch(
-            setNewJob({
-              job: newJobInput,
-              pros: [],
-              cons: [],
-              prosTotal: 0,
-              consTotal: 0,
-            })
-          );
+          if (inputBoolean) {
+            dispatch(
+              setNewJob({
+                job: newJobInput,
+                pros: [],
+                cons: [],
+                prosTotal: 0,
+                consTotal: 0,
+              })
+            );
+          }
           setNewJobInput("");
           setInputBoolean(!inputBoolean);
         }}
