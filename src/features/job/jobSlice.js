@@ -65,6 +65,17 @@ export const jobSlice = createSlice({
         jobObject.consTotal += action.payload.weight;
       }
     },
+    setJobsProsCons: (state, action) => {
+      if (action.payload.jobs) {
+        state.jobs = action.payload.jobs;
+      }
+      if (action.payload.pros) {
+        state.pros = action.payload.pros;
+      }
+      if (action.payload.cons) {
+        state.cons = action.payload.cons;
+      }
+    },
   },
 });
 
@@ -78,6 +89,7 @@ export const {
   removeCon,
   addRemovePro,
   addRemoveCon,
+  setJobsProsCons,
 } = jobSlice.actions;
 
 export const selectJobs = (state) => state.job.jobs;

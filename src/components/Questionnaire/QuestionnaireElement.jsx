@@ -10,8 +10,6 @@ const QuestionnaireElement = (props) => {
   const jobs = useSelector(selectJobs);
   const { pro, weight, con } = props;
 
-  console.log(jobs);
-
   return (
     <div>
       {jobs.map((item, index) => {

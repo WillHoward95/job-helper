@@ -1,4 +1,8 @@
-import { selectJobs, setNewJob } from "../../features/job/jobSlice";
+import {
+  selectJobs,
+  setNewJob,
+  setJobsProsCons,
+} from "../../features/job/jobSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 
