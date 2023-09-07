@@ -6,13 +6,13 @@ const ConsQuestionnaire = () => {
   const cons = useSelector(selectCons);
 
   return (
-    <div>
+    <div className="appSection">
       <h1>Cons</h1>
       {cons.map((item, index) => {
         return (
           <div key={index}>
-            <h2>{item.con}</h2>
-            <h2>{item.weight}</h2>
+            <h2>Con: {item.con}</h2>
+            <h2>Value: {item.weight}</h2>
             <QuestionnaireElement con={item.con} weight={item.weight} />
           </div>
         );

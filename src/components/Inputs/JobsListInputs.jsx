@@ -13,8 +13,8 @@ const JobsListInputs = () => {
   let [newJobInput, setNewJobInput] = useState("");
 
   return (
-    <div>
-      <h1>List of Jobs</h1>
+    <div className="appSection">
+      <h1>Jobs</h1>
       {jobs.map((item, index) => {
         return <h2 key={index}>{item.job}</h2>;
       })}

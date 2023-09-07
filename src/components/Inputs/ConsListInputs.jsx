@@ -10,13 +10,17 @@ const ConsListInputs = () => {
   let [newConWeight, setNewConWeight] = useState();
 
   return (
-    <div>
-      <h1>List of Jobs</h1>
+    <div className="appSection">
+      <div>
+        <h1>Cons</h1>
+        <h3>Con:</h3>
+        <h3>Value:</h3>
+      </div>
       {cons.map((item, index) => {
         return (
           <div key={index}>
-            <h2>Con: {item.con}</h2>
-            <h2>Sad factor: {item.weight}</h2>
+            <h2>{item.con}</h2>
+            <h2>{item.weight}</h2>
           </div>
         );
       })}
@@ -35,6 +39,7 @@ const ConsListInputs = () => {
               setNewConWeight(e.target.value);
             }}
           >
+            <option value={0}>0</option>
             <option value={1}>1</option>
             <option value={2}>2</option>
             <option value={3}>3</option>

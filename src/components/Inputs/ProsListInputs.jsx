@@ -10,13 +10,17 @@ const ProsListInputs = () => {
   let [newProWeight, setNewProWeight] = useState();
 
   return (
-    <div>
-      <h1>List of Pros</h1>
+    <div className="appSection">
+      <div>
+        <h1>Pros</h1>
+        <h3>Pro:</h3>
+        <h3>Value:</h3>
+      </div>
       {pros.map((item, index) => {
         return (
           <div key={index}>
-            <h2>Pro: {item.pro}</h2>
-            <h2>Happy Factor: {item.weight}</h2>
+            <h2>{item.pro}</h2>
+            <h2>{item.weight}</h2>
           </div>
         );
       })}
@@ -35,6 +39,7 @@ const ProsListInputs = () => {
               setNewProWeight(e.target.value);
             }}
           >
+            <option value={0}>0</option>
             <option value={1}>1</option>
             <option value={2}>2</option>
             <option value={3}>3</option>

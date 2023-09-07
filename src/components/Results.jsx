@@ -11,11 +11,11 @@ const Results = () => {
   console.log(jobs, pros, cons);
 
   return (
-    <div>
+    <div className="appSection">
       <h1>Results</h1>
       {jobs.map((item, index) => {
         return (
-          <div key={index}>
+          <div key={index} className="appSection">
             <p>Job: {item.job}</p>
             <p>Pros Score: {item.prosTotal}</p>
             <p>Cons Score: {item.consTotal}</p>

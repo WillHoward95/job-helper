@@ -11,7 +11,7 @@ const QuestionnaireElement = (props) => {
   const { pro, weight, con } = props;
 
   return (
-    <div>
+    <div className="appSection">
       {jobs.map((item, index) => {
         return (
           <div key={index}>

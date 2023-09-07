@@ -10,8 +10,8 @@ const initialState = {
     { pro: "good pay", weight: 8 },
   ],
   cons: [
-    { con: "bad hours", weight: 10 },
-    { con: "bad pay", weight: 8 },
+    { con: "bad hours", weight: 9 },
+    { con: "bad pay", weight: 9 },
   ],
 };
 
@@ -65,7 +65,7 @@ export const jobSlice = createSlice({
         jobObject.consTotal += action.payload.weight;
       }
     },
-    setJobsProsCons: (state, action) => {
+    loadSave: (state, action) => {
       if (action.payload.jobs) {
         state.jobs = action.payload.jobs;
       }
@@ -89,7 +89,7 @@ export const {
   removeCon,
   addRemovePro,
   addRemoveCon,
-  setJobsProsCons,
+  loadSave,
 } = jobSlice.actions;
 
 export const selectJobs = (state) => state.job.jobs;

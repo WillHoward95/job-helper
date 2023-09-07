@@ -3,11 +3,11 @@ import Inputs from "./components/Inputs";
 import Questionnaire from "./components/Questionnaire";
 import Results from "./components/Results";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import "./App.css";
+import "./App.css";
 
 const App = () => {
   return (
-    <>
+    <div className="app">
       <BrowserRouter>
         <Routes>
           <Route index element={<Inputs />}></Route>
@@ -16,7 +16,7 @@ const App = () => {
           <Route path="/results" element={<Results />}></Route>
         </Routes>
       </BrowserRouter>
-    </>
+    </div>
   );
 };
 

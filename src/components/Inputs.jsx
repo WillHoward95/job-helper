@@ -4,7 +4,7 @@ import ProsListInputs from "./Inputs/ProsListInputs";
 import ConsListInputs from "./Inputs/ConsListInputs";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { setJobsProsCons } from "../features/job/jobSlice";
+import { loadSave } from "../features/job/jobSlice";
 import { useDispatch } from "react-redux";
 
 const Inputs = () => {
@@ -14,7 +14,7 @@ const Inputs = () => {
   useEffect(() => {
     if (localStorage.getItem("job-helper-jobs")) {
       dispatch(
-        setJobsProsCons({
+        loadSave({
           jobs: JSON.parse(localStorage.getItem("job-helper-jobs")),
           pros: JSON.parse(localStorage.getItem("job-helper-pros")),
           cons: JSON.parse(localStorage.getItem("job-helper-cons")),
