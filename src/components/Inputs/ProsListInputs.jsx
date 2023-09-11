@@ -1,6 +1,7 @@
 import { selectPros, setNewPro } from "../../features/job/jobSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
+import ProItem from "./ProItem.jsx";
 
 const ProsListInputs = () => {
   const dispatch = useDispatch();
@@ -17,12 +18,7 @@ const ProsListInputs = () => {
         <h3>Value:</h3>
       </div>
       {pros.map((item, index) => {
-        return (
-          <div key={index}>
-            <h2>{item.pro}</h2>
-            <h2>{item.weight}</h2>
-          </div>
-        );
+        return <ProItem item={item} index={index} key={index} />;
       })}
       {inputBoolean ? (
         <div>

@@ -17,7 +17,7 @@ const JobsItem = (props) => {
     <div>
       <textarea
         key={index}
-        placeholder={item.job}
+        defaultValue={item.job}
         onInput={(e) => {
           setEditText(e.target.value);
         }}
