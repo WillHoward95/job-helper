@@ -8,11 +8,6 @@ const JobsItem = (props) => {
   let [editBoolean, setEditBoolean] = useState(false);
   let [editText, setEditText] = useState("");
 
-  const handleEdit = () => {
-    dispatch(editInput({ newJob: editText, oldJob: item.job }));
-    setEditBoolean(!editBoolean);
-  };
-
   return editBoolean ? (
     <div>
       <textarea
@@ -26,7 +21,8 @@ const JobsItem = (props) => {
 
       <button
         onClick={() => {
-          handleEdit();
+          dispatch(editInput({ newJob: editText, oldJob: item.job }));
+          setEditBoolean(!editBoolean);
         }}
       >
         Save
@@ -38,7 +34,8 @@ const JobsItem = (props) => {
       <h2 key={index}>{item.job}</h2>
       <button
         onClick={() => {
-          handleEdit();
+          dispatch(editInput({ newJob: editText, oldJob: item.job }));
+          setEditBoolean(!editBoolean);
         }}
       >
         Edit
