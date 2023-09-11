@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { editPros } from "../../features/job/jobSlice";
+import { editPros, deleteItem } from "../../features/job/jobSlice";
 import { useDispatch } from "react-redux";
 
 const ProItem = (props) => {
@@ -64,6 +64,13 @@ const ProItem = (props) => {
         }}
       >
         Edit
+      </button>
+      <button
+        onClick={() => {
+          dispatch(deleteItem({ pro: item.pro }));
+        }}
+      >
+        Delete
       </button>
     </div>
   );

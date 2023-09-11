@@ -108,6 +108,29 @@ export const jobSlice = createSlice({
         }
       }
     },
+    deleteItem: (state, action) => {
+      if (action.payload.job) {
+        const indexOf = state.jobs.findIndex((item) => {
+          return item.job === action.payload.job;
+        });
+
+        state.jobs.splice(indexOf, 1);
+      }
+      if (action.payload.pro) {
+        const indexOf = state.pros.findIndex((item) => {
+          return item.pro === action.payload.pro;
+        });
+
+        state.pros.splice(indexOf, 1);
+      }
+      if (action.payload.con) {
+        const indexOf = state.cons.findIndex((item) => {
+          return item.con === action.payload.com;
+        });
+
+        state.cons.splice(indexOf, 1);
+      }
+    },
   },
 });
 
@@ -125,6 +148,7 @@ export const {
   editInput,
   editPros,
   editCons,
+  deleteItem,
 } = jobSlice.actions;
 
 export const selectJobs = (state) => state.job.jobs;

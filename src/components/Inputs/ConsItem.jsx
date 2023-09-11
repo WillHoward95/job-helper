@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { editCons } from "../../features/job/jobSlice";
+import { editCons, deleteItem } from "../../features/job/jobSlice";
 import { useDispatch } from "react-redux";
 
 const ConsItem = (props) => {
@@ -64,6 +64,13 @@ const ConsItem = (props) => {
         }}
       >
         Edit
+      </button>
+      <button
+        onClick={() => {
+          dispatch(deleteItem({ con: item.con }));
+        }}
+      >
+        Delete
       </button>
     </div>
   );

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { editInput } from "../../features/job/jobSlice";
+import { editInput, deleteItem } from "../../features/job/jobSlice";
 
 const JobsItem = (props) => {
   const dispatch = useDispatch();
@@ -40,7 +40,13 @@ const JobsItem = (props) => {
       >
         Edit
       </button>
-      <button>Delete</button>
+      <button
+        onClick={() => {
+          dispatch(deleteItem({ job: item.job }));
+        }}
+      >
+        Delete
+      </button>
     </div>
   );
 };
