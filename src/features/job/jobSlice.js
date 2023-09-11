@@ -76,6 +76,15 @@ export const jobSlice = createSlice({
         state.cons = action.payload.cons;
       }
     },
+    editInput: (state, action) => {
+      if (action.payload.newJob) {
+        const jobObject = state.jobs.find((element) => {
+          return action.payload.oldJob === element.job;
+        });
+
+        jobObject.job = action.payload.newJob;
+      }
+    },
   },
 });
 
@@ -90,6 +99,7 @@ export const {
   addRemovePro,
   addRemoveCon,
   loadSave,
+  editInput,
 } = jobSlice.actions;
 
 export const selectJobs = (state) => state.job.jobs;

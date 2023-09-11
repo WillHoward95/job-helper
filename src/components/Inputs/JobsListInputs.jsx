@@ -5,6 +5,7 @@ import {
 } from "../../features/job/jobSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
+import JobsItem from "./JobsItem";
 
 const JobsListInputs = () => {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ const JobsListInputs = () => {
     <div className="appSection">
       <h1>Jobs</h1>
       {jobs.map((item, index) => {
-        return <h2 key={index}>{item.job}</h2>;
+        return <JobsItem index={index} item={item} key={index} />;
       })}
       {inputBoolean ? (
         <textarea
