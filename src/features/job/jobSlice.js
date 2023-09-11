@@ -92,9 +92,19 @@ export const jobSlice = createSlice({
         });
 
         proObject.pro = action.payload.newPro;
+        proObject.weight = action.payload.newProWeight;
+      }
+    },
+    editCons: (state, action) => {
+      if (action.payload.oldCon) {
+        const conObject = state.cons.find((element) => {
+          return action.payload.oldCon === element.con;
+        });
 
-        if (action.payload.newProWeight) {
-          proObject.weight = action.payload.newProWeight;
+        conObject.con = action.payload.newCon;
+
+        if (action.payload.newConWeight) {
+          conObject.weight = action.payload.newConWeight;
         }
       }
     },
@@ -114,6 +124,7 @@ export const {
   loadSave,
   editInput,
   editPros,
+  editCons,
 } = jobSlice.actions;
 
 export const selectJobs = (state) => state.job.jobs;

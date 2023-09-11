@@ -1,6 +1,7 @@
 import { selectCons, setNewCon } from "../../features/job/jobSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
+import ConsItem from "./ConsItem";
 
 const ConsListInputs = () => {
   const dispatch = useDispatch();
@@ -17,12 +18,7 @@ const ConsListInputs = () => {
         <h3>Value:</h3>
       </div>
       {cons.map((item, index) => {
-        return (
-          <div key={index}>
-            <h2>{item.con}</h2>
-            <h2>{item.weight}</h2>
-          </div>
-        );
+        return <ConsItem item={item} index={index} key={index} />;
       })}
       {inputBoolean ? (
         <div>
