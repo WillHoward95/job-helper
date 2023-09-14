@@ -2,7 +2,7 @@ import { selectPros, setNewPro } from "../../features/job/jobSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import ProItem from "./ProItem.jsx";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const ProsListInputs = () => {
@@ -12,8 +12,8 @@ const ProsListInputs = () => {
   let [newProInput, setNewProInput] = useState("");
   let [newProWeight, setNewProWeight] = useState();
 
-  const notify = (action) => {
-    toast.error(`Please enter a pro title and a weight to ${action}`, {
+  const notify = () => {
+    toast.error(`Please enter a pro title and a weight to add a pro`, {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -74,7 +74,7 @@ const ProsListInputs = () => {
           }
           if (!newProInput || !newProWeight) {
             if (inputBoolean) {
-              notify("add a pro");
+              notify();
             }
           }
           setInputBoolean(!inputBoolean);
@@ -96,7 +96,6 @@ const ProsListInputs = () => {
       ) : (
         <></>
       )}
-      <ToastContainer />
     </div>
   );
 };

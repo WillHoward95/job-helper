@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { loadSave } from "../features/job/jobSlice";
 import { useDispatch } from "react-redux";
+import { ToastContainer } from "react-toastify";
 
 const Inputs = () => {
   const navigate = useNavigate();
@@ -36,6 +37,7 @@ const Inputs = () => {
       >
         Begin questionnaire
       </button>
+      <ToastContainer pauseOnFocusLoss={false} />
     </div>
   );
 };

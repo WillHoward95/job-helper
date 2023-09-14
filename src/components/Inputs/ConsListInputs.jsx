@@ -2,7 +2,7 @@ import { selectCons, setNewCon } from "../../features/job/jobSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import ConsItem from "./ConsItem";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const ConsListInputs = () => {
@@ -12,8 +12,8 @@ const ConsListInputs = () => {
   let [newConInput, setNewConInput] = useState("");
   let [newConWeight, setNewConWeight] = useState();
 
-  const notify = (action) => {
-    toast.error(`Please enter a pro title and a weight to ${action}`, {
+  const notify = () => {
+    toast.error(`Please enter a con title and a weight to add a con`, {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -74,7 +74,7 @@ const ConsListInputs = () => {
           }
           if (!newConInput || !newConWeight) {
             if (inputBoolean) {
-              notify("add a con");
+              notify();
             }
           }
           setInputBoolean(!inputBoolean);
@@ -96,7 +96,6 @@ const ConsListInputs = () => {
       ) : (
         <></>
       )}
-      <ToastContainer />
     </div>
   );
 };

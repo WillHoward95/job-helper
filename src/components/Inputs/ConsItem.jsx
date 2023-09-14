@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { editCons, deleteItem } from "../../features/job/jobSlice";
 import { useDispatch } from "react-redux";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const ConsItem = (props) => {
@@ -12,8 +12,8 @@ const ConsItem = (props) => {
   let [newConInput, setNewConInput] = useState("");
   let [newConWeight, setNewConWeight] = useState();
 
-  const notify = (action) => {
-    toast.error(`Please enter a pro title and a weight to ${action}`, {
+  const notify = () => {
+    toast.error(`Please enter a con title and a weight to edit a con`, {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -65,7 +65,7 @@ const ConsItem = (props) => {
 
           if (!newConInput || !newConWeight) {
             if (editBoolean) {
-              notify("edit a con");
+              notify();
             }
           }
 
@@ -107,7 +107,6 @@ const ConsItem = (props) => {
       >
         Delete
       </button>
-      <ToastContainer />
     </div>
   );
 };
