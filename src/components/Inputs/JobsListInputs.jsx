@@ -1,8 +1,4 @@
-import {
-  selectJobs,
-  setNewJob,
-  setJobsProsCons,
-} from "../../features/job/jobSlice";
+import { selectJobs, setNewJob } from "../../features/job/jobSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import JobsItem from "./JobsItem";
@@ -30,6 +26,7 @@ const JobsListInputs = () => {
         <></>
       )}
       <button
+        className="button"
         onClick={() => {
           if (inputBoolean) {
             dispatch(

@@ -24,7 +24,7 @@ body {
   margin: 20px 0;
 }
 
-button {
+.button {
   width: 100%;
   padding: 5px;
   border-radius: 5px;
@@ -32,7 +32,7 @@ button {
   border: 1px solid white;
 }
 
-button:hover {
+.button:hover {
   cursor: pointer;
   background-color: #025c9c;
 }

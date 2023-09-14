@@ -2,6 +2,8 @@ import { selectPros, setNewPro } from "../../features/job/jobSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import ProItem from "./ProItem.jsx";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ProsListInputs = () => {
   const dispatch = useDispatch();
@@ -9,6 +11,19 @@ const ProsListInputs = () => {
   let [inputBoolean, setInputBoolean] = useState(false);
   let [newProInput, setNewProInput] = useState("");
   let [newProWeight, setNewProWeight] = useState();
+
+  const notify = (action) => {
+    toast.error(`Please enter a pro title and a weight to ${action}`, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  };
 
   return (
     <div className="appSection">
@@ -52,17 +67,25 @@ const ProsListInputs = () => {
         <></>
       )}
       <button
+        className="button"
         onClick={() => {
+          // notify();
           if (newProInput && newProWeight) {
             dispatch(setNewPro({ pro: newProInput, weight: newProWeight }));
             setNewProInput("");
             setNewProWeight(undefined);
+          }
+          if (!newProInput || !newProWeight) {
+            if (inputBoolean) {
+              notify("add a pro");
+            }
           }
           setInputBoolean(!inputBoolean);
         }}
       >
         {inputBoolean ? "Save Pro" : "Add a Pro"}
       </button>
+      <ToastContainer />
     </div>
   );
 };

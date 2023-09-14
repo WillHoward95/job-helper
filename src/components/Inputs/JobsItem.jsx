@@ -20,6 +20,7 @@ const JobsItem = (props) => {
       ></textarea>
 
       <button
+        className="button"
         onClick={() => {
           dispatch(editInput({ newJob: editText, oldJob: item.job }));
           setEditBoolean(!editBoolean);
@@ -27,12 +28,13 @@ const JobsItem = (props) => {
       >
         Save
       </button>
-      <button>Delete</button>
+      <button className="button">Delete</button>
     </div>
   ) : (
     <div>
       <h2 key={index}>{item.job}</h2>
       <button
+        className="button"
         onClick={() => {
           dispatch(editInput({ newJob: editText, oldJob: item.job }));
           setEditBoolean(!editBoolean);
@@ -41,6 +43,7 @@ const JobsItem = (props) => {
         Edit
       </button>
       <button
+        className="button"
         onClick={() => {
           dispatch(deleteItem({ job: item.job }));
         }}

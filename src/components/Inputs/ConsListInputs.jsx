@@ -52,6 +52,7 @@ const ConsListInputs = () => {
         <></>
       )}
       <button
+        className="button"
         onClick={() => {
           if (newConInput && newConWeight) {
             dispatch(setNewCon({ con: newConInput, weight: newConWeight }));

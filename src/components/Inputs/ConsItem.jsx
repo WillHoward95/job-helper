@@ -36,6 +36,7 @@ const ConsItem = (props) => {
         <option value={10}>10</option>
       </select>
       <button
+        className="button"
         onClick={() => {
           if (newConInput && newConWeight) {
             dispatch(
@@ -59,6 +60,7 @@ const ConsItem = (props) => {
       <h2>{item.con}</h2>
       <h2>{item.weight}</h2>
       <button
+        className="button"
         onClick={() => {
           setEditBoolean(!editBoolean);
         }}
@@ -66,6 +68,7 @@ const ConsItem = (props) => {
         Edit
       </button>
       <button
+        className="button"
         onClick={() => {
           dispatch(deleteItem({ con: item.con }));
         }}

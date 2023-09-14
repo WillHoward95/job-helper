@@ -30,6 +30,7 @@ const Results = () => {
         );
       })}
       <button
+        className="button"
         onClick={() => {
           dispatch(removeProsCons());
           navigate("/inputs");
@@ -38,6 +39,7 @@ const Results = () => {
         Edit Answers
       </button>
       <button
+        className="button"
         onClick={() => {
           localStorage.setItem("job-helper-jobs", JSON.stringify(jobs));
           localStorage.setItem("job-helper-pros", JSON.stringify(pros));

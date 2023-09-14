@@ -29,6 +29,7 @@ const Inputs = () => {
       <ProsListInputs />
       <ConsListInputs />
       <button
+        className="button"
         onClick={() => {
           navigate("/questionnaire");
         }}
