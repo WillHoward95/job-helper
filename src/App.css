@@ -3,15 +3,17 @@
   padding: 0;
   box-sizing: border-box;
   color: white;
+  word-break: break-word;
+  white-space: normal;
 }
 
 body {
-  background-color: #00487c;
+  background-color: #043355;
 }
 
 .app {
   min-width: 200px;
-  width: 30%;
+  width: 35%;
   margin: 0 auto;
   padding-top: 50px;
   padding-bottom: 50px;
@@ -19,17 +21,27 @@ body {
 
 .appSection {
   border: 1px solid white;
-  border-radius: 5px;
   padding: 0 20px 20px 20px;
   margin: 20px 0;
+  background-color: #03416e;
 }
 
 .button {
   width: 100%;
   padding: 5px;
-  border-radius: 5px;
-  background-color: #00487c;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: #024d83;
   border: 1px solid white;
+}
+
+.half-button {
+  width: 49%;
+}
+
+.half-button-container {
+  display: flex;
+  justify-content: space-between;
 }
 
 .button:hover {
@@ -37,9 +49,30 @@ body {
   background-color: #025c9c;
 }
 
+/* .add-button {
+  margin-top: 20px;
+} */
+
 textarea,
 select {
   background-color: #025c9c;
+  width: 49%;
+  border: 1px solid white;
+}
+
+.job-textarea {
   width: 100%;
-  border-radius: 5px;
+  margin: 10px 0 0 0;
+}
+
+.add-job-textarea {
+  margin: 20px 0 0 0;
+}
+
+.table-layout {
+  display: flex;
+  justify-content: space-between;
+}
+h3 {
+  margin: 10px 0;
 }

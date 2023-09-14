@@ -26,9 +26,9 @@ const Inputs = () => {
 
   return (
     <div>
-      <JobsListInputs />
       <ProsListInputs />
       <ConsListInputs />
+      <JobsListInputs />
       <button
         className="button"
         onClick={() => {

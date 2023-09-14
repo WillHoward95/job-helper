@@ -11,8 +11,14 @@ const ConsQuestionnaire = () => {
       {cons.map((item, index) => {
         return (
           <div key={index}>
-            <h2>Con: {item.con}</h2>
-            <h2>Value: {item.weight}</h2>
+            <div className="table-layout">
+              <h3>Con:</h3>
+              <h3>Value:</h3>
+            </div>
+            <div className="table-layout">
+              <h3>{item.con}</h3>
+              <h3>{item.weight}</h3>
+            </div>
             <QuestionnaireElement con={item.con} weight={item.weight} />
           </div>
         );

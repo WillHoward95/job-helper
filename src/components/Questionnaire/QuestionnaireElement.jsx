@@ -4,6 +4,7 @@ import {
   addRemoveCon,
 } from "../../features/job/jobSlice";
 import { useSelector, useDispatch } from "react-redux";
+import Checkbox from "@mui/material/Checkbox";
 
 const QuestionnaireElement = (props) => {
   const dispatch = useDispatch();
@@ -14,9 +15,9 @@ const QuestionnaireElement = (props) => {
     <div className="appSection">
       {jobs.map((item, index) => {
         return (
-          <div key={index}>
-            <h2>{item.job}</h2>
-            <input
+          <div key={index} className="table-layout">
+            <h3>{item.job}</h3>
+            <Checkbox
               type="checkbox"
               onChange={() => {
                 if (pro) {

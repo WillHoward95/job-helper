@@ -11,6 +11,7 @@ const JobsItem = (props) => {
   return editBoolean ? (
     <div>
       <textarea
+        className="job-textarea"
         key={index}
         defaultValue={item.job}
         onInput={(e) => {
@@ -19,37 +20,41 @@ const JobsItem = (props) => {
         autoFocus
       ></textarea>
 
-      <button
-        className="button"
-        onClick={() => {
-          dispatch(editInput({ newJob: editText, oldJob: item.job }));
-          setEditBoolean(!editBoolean);
-        }}
-      >
-        Save
-      </button>
-      <button className="button">Delete</button>
+      <div className="half-button-container">
+        <button
+          className="button half-button"
+          onClick={() => {
+            dispatch(editInput({ newJob: editText, oldJob: item.job }));
+            setEditBoolean(!editBoolean);
+          }}
+        >
+          Save
+        </button>
+        <button className="button half-button">Delete</button>
+      </div>
     </div>
   ) : (
     <div>
-      <h2 key={index}>{item.job}</h2>
-      <button
-        className="button"
-        onClick={() => {
-          dispatch(editInput({ newJob: editText, oldJob: item.job }));
-          setEditBoolean(!editBoolean);
-        }}
-      >
-        Edit
-      </button>
-      <button
-        className="button"
-        onClick={() => {
-          dispatch(deleteItem({ job: item.job }));
-        }}
-      >
-        Delete
-      </button>
+      <h3 key={index}>{item.job}</h3>
+      <div className="half-button-container">
+        <button
+          className="button half-button"
+          onClick={() => {
+            dispatch(editInput({ newJob: editText, oldJob: item.job }));
+            setEditBoolean(!editBoolean);
+          }}
+        >
+          Edit
+        </button>
+        <button
+          className="button half-button"
+          onClick={() => {
+            dispatch(deleteItem({ job: item.job }));
+          }}
+        >
+          Delete
+        </button>
+      </div>
     </div>
   );
 };

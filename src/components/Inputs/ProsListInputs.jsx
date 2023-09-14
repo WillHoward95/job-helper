@@ -29,8 +29,10 @@ const ProsListInputs = () => {
     <div className="appSection">
       <div>
         <h1>Pros</h1>
-        <h3>Pro:</h3>
-        <h3>Value:</h3>
+        <div className="table-layout">
+          <h3>Pro:</h3>
+          <h3>Value:</h3>
+        </div>
       </div>
       {pros.map((item, index) => {
         return <ProItem item={item} index={index} key={index} />;
@@ -44,7 +46,7 @@ const ProsListInputs = () => {
               setNewProInput((newProInput = e.target.value));
             }}
           ></textarea>
-          <p>Happy Factor:</p>
+          <p>Value:</p>
           <select
             onChange={(e) => {
               setNewProWeight(e.target.value);
@@ -67,7 +69,7 @@ const ProsListInputs = () => {
         <></>
       )}
       <button
-        className="button"
+        className="button add-button"
         onClick={() => {
           if (newProInput && newProWeight) {
             dispatch(setNewPro({ pro: newProInput, weight: newProWeight }));

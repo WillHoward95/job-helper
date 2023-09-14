@@ -50,62 +50,68 @@ const ProItem = (props) => {
         <option value={9}>9</option>
         <option value={10}>10</option>
       </select>
-      <button
-        className="button"
-        onClick={() => {
-          if (newProInput && newProWeight) {
-            dispatch(
-              editPros({
-                newPro: newProInput,
-                oldPro: item.pro,
-                newProWeight: newProWeight,
-              })
-            );
-          }
-          if (!newProInput || !newProWeight) {
-            if (editBoolean) {
-              notify();
+      <div className="half-button-container">
+        <button
+          className="button half-button"
+          onClick={() => {
+            if (newProInput && newProWeight) {
+              dispatch(
+                editPros({
+                  newPro: newProInput,
+                  oldPro: item.pro,
+                  newProWeight: newProWeight,
+                })
+              );
             }
-          }
+            if (!newProInput || !newProWeight) {
+              if (editBoolean) {
+                notify();
+              }
+            }
 
-          setNewProInput("");
-          setNewProWeight(undefined);
-          setEditBoolean(!editBoolean);
-        }}
-      >
-        Save
-      </button>
-      <button
-        className="button"
-        onClick={() => {
-          setNewProInput("");
-          setNewProWeight(undefined);
-          setEditBoolean(!editBoolean);
-        }}
-      >
-        Cancel
-      </button>
+            setNewProInput("");
+            setNewProWeight(undefined);
+            setEditBoolean(!editBoolean);
+          }}
+        >
+          Save
+        </button>
+        <button
+          className="button half-button"
+          onClick={() => {
+            setNewProInput("");
+            setNewProWeight(undefined);
+            setEditBoolean(!editBoolean);
+          }}
+        >
+          Cancel
+        </button>
+      </div>
     </div>
   ) : (
     <div key={index}>
-      <h2>{item.pro}</h2>
-      <h2>{item.weight}</h2>
-      <button
-        className="button"
-        onClick={() => {
-          setEditBoolean(!editBoolean);
-        }}
-      >
-        Edit
-      </button>
-      <button
-        className="button"
-        onClick={() => {
-          dispatch(deleteItem({ pro: item.pro }));
-        }}
-      >
-        Delete
-      </button>
+      <div className="table-layout">
+        <h3>{item.pro}</h3>
+        <h3>{item.weight}</h3>
+      </div>
+      <div className="half-button-container">
+        <button
+          className="button half-button"
+          onClick={() => {
+            setEditBoolean(!editBoolean);
+          }}
+        >
+          Edit
+        </button>
+        <button
+          className="button half-button"
+          onClick={() => {
+            dispatch(deleteItem({ pro: item.pro }));
+          }}
+        >
+          Delete
+        </button>
+      </div>
     </div>
   );
 };

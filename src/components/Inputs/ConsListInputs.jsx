@@ -29,22 +29,24 @@ const ConsListInputs = () => {
     <div className="appSection">
       <div>
         <h1>Cons</h1>
-        <h3>Con:</h3>
-        <h3>Value:</h3>
+        <div className="table-layout">
+          <h3>Con:</h3>
+          <h3>Value:</h3>
+        </div>
       </div>
       {cons.map((item, index) => {
         return <ConsItem item={item} index={index} key={index} />;
       })}
       {inputBoolean ? (
         <div>
-          <p>Pro:</p>
+          <p>Con:</p>
           <textarea
             autoFocus
             onInput={(e) => {
               setNewConInput((newConInput = e.target.value));
             }}
           ></textarea>
-          <p>Happy Factor:</p>
+          <p>Value:</p>
           <select
             onChange={(e) => {
               setNewConWeight(e.target.value);
@@ -67,7 +69,7 @@ const ConsListInputs = () => {
         <></>
       )}
       <button
-        className="button"
+        className="button add-button"
         onClick={() => {
           if (newConInput && newConWeight) {
             dispatch(setNewCon({ con: newConInput, weight: newConWeight }));

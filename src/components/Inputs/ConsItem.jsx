@@ -50,63 +50,69 @@ const ConsItem = (props) => {
         <option value={9}>9</option>
         <option value={10}>10</option>
       </select>
-      <button
-        className="button"
-        onClick={() => {
-          if (newConInput && newConWeight) {
-            dispatch(
-              editCons({
-                newCon: newConInput,
-                oldCon: item.con,
-                newConWeight: newConWeight,
-              })
-            );
-          }
-
-          if (!newConInput || !newConWeight) {
-            if (editBoolean) {
-              notify();
+      <div className="half-button-container">
+        <button
+          className="button half-button"
+          onClick={() => {
+            if (newConInput && newConWeight) {
+              dispatch(
+                editCons({
+                  newCon: newConInput,
+                  oldCon: item.con,
+                  newConWeight: newConWeight,
+                })
+              );
             }
-          }
 
-          setNewConInput("");
-          setNewConWeight(undefined);
-          setEditBoolean(!editBoolean);
-        }}
-      >
-        Save
-      </button>
-      <button
-        className="button"
-        onClick={() => {
-          setNewConInput("");
-          setNewConWeight(undefined);
-          setEditBoolean(!editBoolean);
-        }}
-      >
-        Cancel
-      </button>
+            if (!newConInput || !newConWeight) {
+              if (editBoolean) {
+                notify();
+              }
+            }
+
+            setNewConInput("");
+            setNewConWeight(undefined);
+            setEditBoolean(!editBoolean);
+          }}
+        >
+          Save
+        </button>
+        <button
+          className="button half-button"
+          onClick={() => {
+            setNewConInput("");
+            setNewConWeight(undefined);
+            setEditBoolean(!editBoolean);
+          }}
+        >
+          Cancel
+        </button>
+      </div>
     </div>
   ) : (
     <div key={index}>
-      <h2>{item.con}</h2>
-      <h2>{item.weight}</h2>
-      <button
-        className="button"
-        onClick={() => {
-          setEditBoolean(!editBoolean);
-        }}
-      >
-        Edit
-      </button>
-      <button
-        className="button"
-        onClick={() => {
-          dispatch(deleteItem({ con: item.con }));
-        }}
-      >
-        Delete
-      </button>
+      <div className="table-layout">
+        <h3>{item.con}</h3>
+        <h3>{item.weight}</h3>
+      </div>
+      <div className="half-button-container">
+        <button
+          className="button half-button"
+          onClick={() => {
+            setEditBoolean(!editBoolean);
+          }}
+        >
+          Edit
+        </button>
+        <button
+          className="button half-button"
+          onClick={() => {
+            dispatch(deleteItem({ con: item.con }));
+          }}
+        >
+          Delete
+        </button>
+      </div>
     </div>
   );
 };
