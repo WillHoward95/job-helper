@@ -2,6 +2,8 @@ import { selectCons, setNewCon } from "../../features/job/jobSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import ConsItem from "./ConsItem";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ConsListInputs = () => {
   const dispatch = useDispatch();
@@ -9,6 +11,19 @@ const ConsListInputs = () => {
   let [inputBoolean, setInputBoolean] = useState(false);
   let [newConInput, setNewConInput] = useState("");
   let [newConWeight, setNewConWeight] = useState();
+
+  const notify = (action) => {
+    toast.error(`Please enter a pro title and a weight to ${action}`, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  };
 
   return (
     <div className="appSection">
@@ -56,14 +71,32 @@ const ConsListInputs = () => {
         onClick={() => {
           if (newConInput && newConWeight) {
             dispatch(setNewCon({ con: newConInput, weight: newConWeight }));
-            setNewConInput("");
-            setNewConWeight(undefined);
+          }
+          if (!newConInput || !newConWeight) {
+            if (inputBoolean) {
+              notify("add a con");
+            }
           }
           setInputBoolean(!inputBoolean);
+          setNewConInput("");
+          setNewConWeight(undefined);
         }}
       >
         {inputBoolean ? "Save Con" : "Add a Con"}
       </button>
+      {inputBoolean ? (
+        <button
+          className="button"
+          onClick={() => {
+            setInputBoolean(!inputBoolean);
+          }}
+        >
+          Cancel
+        </button>
+      ) : (
+        <></>
+      )}
+      <ToastContainer />
     </div>
   );
 };

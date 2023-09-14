@@ -69,11 +69,8 @@ const ProsListInputs = () => {
       <button
         className="button"
         onClick={() => {
-          // notify();
           if (newProInput && newProWeight) {
             dispatch(setNewPro({ pro: newProInput, weight: newProWeight }));
-            setNewProInput("");
-            setNewProWeight(undefined);
           }
           if (!newProInput || !newProWeight) {
             if (inputBoolean) {
@@ -81,10 +78,24 @@ const ProsListInputs = () => {
             }
           }
           setInputBoolean(!inputBoolean);
+          setNewProInput("");
+          setNewProWeight(undefined);
         }}
       >
         {inputBoolean ? "Save Pro" : "Add a Pro"}
       </button>
+      {inputBoolean ? (
+        <button
+          className="button"
+          onClick={() => {
+            setInputBoolean(!inputBoolean);
+          }}
+        >
+          Cancel
+        </button>
+      ) : (
+        <></>
+      )}
       <ToastContainer />
     </div>
   );

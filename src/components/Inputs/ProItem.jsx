@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { editPros, deleteItem } from "../../features/job/jobSlice";
 import { useDispatch } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ProItem = (props) => {
   const dispatch = useDispatch();
@@ -9,6 +11,19 @@ const ProItem = (props) => {
 
   let [newProInput, setNewProInput] = useState("");
   let [newProWeight, setNewProWeight] = useState();
+
+  const notify = (action) => {
+    toast.error(`Please enter a pro title and a weight to ${action}`, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  };
 
   return editBoolean ? (
     <div key={index}>
@@ -47,12 +62,28 @@ const ProItem = (props) => {
               })
             );
           }
+          if (!newProInput || !newProWeight) {
+            if (editBoolean) {
+              notify("edit a pro");
+            }
+          }
+
           setNewProInput("");
           setNewProWeight(undefined);
           setEditBoolean(!editBoolean);
         }}
       >
         Save
+      </button>
+      <button
+        className="button"
+        onClick={() => {
+          setNewProInput("");
+          setNewProWeight(undefined);
+          setEditBoolean(!editBoolean);
+        }}
+      >
+        Cancel
       </button>
     </div>
   ) : (
@@ -75,6 +106,7 @@ const ProItem = (props) => {
       >
         Delete
       </button>
+      <ToastContainer />
     </div>
   );
 };
