@@ -21,7 +21,7 @@ const Results = () => {
       <h1>Results</h1>
       {jobs.map((item, index) => {
         return (
-          <div key={index} className="appSection">
+          <div key={index} className="appSection resultsSection">
             <p>Job: {item.job}</p>
             <p>Pros Score: {item.prosTotal}</p>
             <p>Cons Score: {item.consTotal}</p>
@@ -30,7 +30,7 @@ const Results = () => {
         );
       })}
       <button
-        className="button"
+        className="button main-button"
         onClick={() => {
           dispatch(removeProsCons());
           navigate("/inputs");
@@ -39,7 +39,7 @@ const Results = () => {
         Edit Answers
       </button>
       <button
-        className="button"
+        className="button main-button"
         onClick={() => {
           localStorage.setItem("job-helper-jobs", JSON.stringify(jobs));
           localStorage.setItem("job-helper-pros", JSON.stringify(pros));

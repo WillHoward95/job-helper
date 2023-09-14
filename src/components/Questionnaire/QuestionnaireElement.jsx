@@ -15,7 +15,7 @@ const QuestionnaireElement = (props) => {
     <div className="appSection">
       {jobs.map((item, index) => {
         return (
-          <div key={index} className="table-layout">
+          <div key={index} className="table-layout questionnaireSection">
             <h3>{item.job}</h3>
             <Checkbox
               type="checkbox"

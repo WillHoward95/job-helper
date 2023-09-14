@@ -30,7 +30,7 @@ const Inputs = () => {
       <ConsListInputs />
       <JobsListInputs />
       <button
-        className="button"
+        className="button main-button"
         onClick={() => {
           navigate("/questionnaire");
         }}

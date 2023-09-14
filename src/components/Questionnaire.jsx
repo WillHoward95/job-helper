@@ -10,7 +10,7 @@ const Questionnaire = () => {
       <ProsQuestionnaire />
       <ConsQuestionnaire />
       <button
-        className="button"
+        className="button main-button"
         onClick={() => {
           navigate("/results");
         }}
