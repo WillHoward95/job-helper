@@ -131,6 +131,15 @@ export const jobSlice = createSlice({
         state.cons.splice(indexOf, 1);
       }
     },
+    removeProsCons: (state) => {
+      state.jobs.forEach((item) => {
+        item.pros = [];
+        item.cons = [];
+        item.prosTotal = 0;
+        item.consTotal = 0;
+      });
+      console.log(state.jobs);
+    },
   },
 });
 
@@ -149,6 +158,7 @@ export const {
   editPros,
   editCons,
   deleteItem,
+  removeProsCons,
 } = jobSlice.actions;
 
 export const selectJobs = (state) => state.job.jobs;

@@ -1,5 +1,10 @@
-import { selectJobs, selectPros, selectCons } from "../features/job/jobSlice";
-import { useSelector } from "react-redux";
+import {
+  selectJobs,
+  selectPros,
+  selectCons,
+  removeProsCons,
+} from "../features/job/jobSlice";
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const Results = () => {
@@ -7,6 +12,7 @@ const Results = () => {
   const pros = useSelector(selectPros);
   const cons = useSelector(selectCons);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   console.log(jobs, pros, cons);
 
@@ -25,6 +31,7 @@ const Results = () => {
       })}
       <button
         onClick={() => {
+          dispatch(removeProsCons());
           navigate("/inputs");
         }}
       >
