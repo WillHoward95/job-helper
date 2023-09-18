@@ -14,7 +14,7 @@ const Results = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  // console.log(jobs);
+  console.log(jobs);
 
   const _jobs = JSON.parse(JSON.stringify(jobs));
 
@@ -50,8 +50,17 @@ const Results = () => {
       <button
         className="button main-button"
         onClick={() => {
-          dispatch(removeProsCons());
+          // dispatch(removeProsCons());
           navigate("/inputs");
+        }}
+      >
+        Back to Start
+      </button>
+      <button
+        className="button main-button"
+        onClick={() => {
+          // dispatch(removeProsCons());
+          navigate("/questionnaire");
         }}
       >
         Edit Answers

@@ -8,9 +8,9 @@ const Questionnaire = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  window.onpopstate = () => {
-    dispatch(removeProsCons());
-  };
+  // window.onpopstate = () => {
+  //   dispatch(removeProsCons());
+  // };
 
   return (
     <div>
