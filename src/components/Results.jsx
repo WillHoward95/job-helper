@@ -40,10 +40,10 @@ const Results = () => {
       {_jobs.map((item, index) => {
         return (
           <div key={index} className="appSection resultsSection">
-            <p>Job: {item.job}</p>
+            <h3>Job: {item.job}</h3>
             <p>Pros Score: {item.prosTotal}</p>
             <p>Cons Score: {item.consTotal}</p>
-            <p>Final Score: {item.finalTotal}</p>
+            <h3>Final Score: {item.finalTotal}</h3>
           </div>
         );
       })}
