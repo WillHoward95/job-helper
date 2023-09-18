@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { editPros, deleteItem } from "../../features/job/jobSlice";
 import { useDispatch } from "react-redux";
-import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const ProItem = (props) => {
@@ -11,19 +10,6 @@ const ProItem = (props) => {
 
   let [newProInput, setNewProInput] = useState("");
   let [newProWeight, setNewProWeight] = useState();
-
-  const notify = () => {
-    toast.error(`Please enter a pro title and a weight to edit a pro`, {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "colored",
-    });
-  };
 
   return editBoolean ? (
     <div key={index}>
@@ -39,7 +25,7 @@ const ProItem = (props) => {
             setNewProWeight(e.target.value);
           }}
         >
-          <option value={0}>0</option>
+          <option value={0}>---</option>
           <option value={1}>1</option>
           <option value={2}>2</option>
           <option value={3}>3</option>
@@ -64,11 +50,22 @@ const ProItem = (props) => {
                   newProWeight: newProWeight,
                 })
               );
-            }
-            if (!newProInput || !newProWeight) {
-              if (editBoolean) {
-                notify();
-              }
+            } else if (newProInput) {
+              dispatch(
+                editPros({
+                  newPro: newProInput,
+                  oldPro: item.pro,
+                  newProWeight: item.weight,
+                })
+              );
+            } else if (newProWeight) {
+              dispatch(
+                editPros({
+                  newPro: item.pro,
+                  oldPro: item.pro,
+                  newProWeight: newProWeight,
+                })
+              );
             }
 
             setNewProInput("");
@@ -94,7 +91,7 @@ const ProItem = (props) => {
     <div key={index}>
       <div className="table-layout">
         <h3>{item.pro}</h3>
-        <h3>{item.weight}</h3>
+        <h3 className="weighting">{item.weight}</h3>
       </div>
       <div className="half-button-container">
         <button

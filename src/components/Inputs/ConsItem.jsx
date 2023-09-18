@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { editCons, deleteItem } from "../../features/job/jobSlice";
 import { useDispatch } from "react-redux";
-import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const ConsItem = (props) => {
@@ -11,19 +10,6 @@ const ConsItem = (props) => {
 
   let [newConInput, setNewConInput] = useState("");
   let [newConWeight, setNewConWeight] = useState();
-
-  const notify = () => {
-    toast.error(`Please enter a con title and a weight to edit a con`, {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "colored",
-    });
-  };
 
   return editBoolean ? (
     <div key={index}>
@@ -39,7 +25,7 @@ const ConsItem = (props) => {
             setNewConWeight(e.target.value);
           }}
         >
-          <option value={0}>0</option>
+          <option value={0}>---</option>
           <option value={1}>1</option>
           <option value={2}>2</option>
           <option value={3}>3</option>
@@ -64,12 +50,22 @@ const ConsItem = (props) => {
                   newConWeight: newConWeight,
                 })
               );
-            }
-
-            if (!newConInput || !newConWeight) {
-              if (editBoolean) {
-                notify();
-              }
+            } else if (newConInput) {
+              dispatch(
+                editCons({
+                  newCon: newConInput,
+                  oldCon: item.con,
+                  newConWeight: item.weight,
+                })
+              );
+            } else if (newConWeight) {
+              dispatch(
+                editCons({
+                  newCon: item.con,
+                  oldCon: item.con,
+                  newConWeight: newConWeight,
+                })
+              );
             }
 
             setNewConInput("");
@@ -95,7 +91,7 @@ const ConsItem = (props) => {
     <div key={index}>
       <div className="table-layout">
         <h3>{item.con}</h3>
-        <h3>{item.weight}</h3>
+        <h3 className="weighting">{item.weight}</h3>
       </div>
       <div className="half-button-container">
         <button

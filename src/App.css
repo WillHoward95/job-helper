@@ -96,3 +96,7 @@ h3 {
 .questionnaireElement {
   padding: 10px;
 }
+
+.weighting {
+  word-break: normal;
+}

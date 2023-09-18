@@ -13,7 +13,7 @@ const ConsListInputs = () => {
   let [newConWeight, setNewConWeight] = useState();
 
   const notify = () => {
-    toast.error(`Please enter a con title and a weight to add a con`, {
+    toast.error(`Please enter a title and a weight to add a con`, {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -39,10 +39,6 @@ const ConsListInputs = () => {
       })}
       {inputBoolean ? (
         <div className="inputs add-input">
-          {/* <div className="table-layout">
-            <h3>Con:</h3>
-            <h3>Value:</h3>
-          </div> */}
           <div className="table-layout">
             <textarea
               autoFocus

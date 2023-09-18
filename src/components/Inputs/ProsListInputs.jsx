@@ -13,7 +13,7 @@ const ProsListInputs = () => {
   let [newProWeight, setNewProWeight] = useState();
 
   const notify = () => {
-    toast.error(`Please enter a pro title and a weight to add a pro`, {
+    toast.error(`Please enter a title and a weight to add a pro`, {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -39,10 +39,6 @@ const ProsListInputs = () => {
       })}
       {inputBoolean ? (
         <div className="inputs add-input">
-          {/* <div className="table-layout">
-            <h3>Pro:</h3>
-            <h3>Value:</h3>
-          </div> */}
           <div className="table-layout">
             <textarea
               autoFocus
