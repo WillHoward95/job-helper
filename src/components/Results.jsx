@@ -14,18 +14,36 @@ const Results = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  console.log(jobs, pros, cons);
+  // console.log(jobs);
+
+  const _jobs = JSON.parse(JSON.stringify(jobs));
+
+  _jobs.map((item) => {
+    item.finalTotal = item.prosTotal - item.consTotal;
+  });
+
+  _jobs.sort((obj1, obj2) => {
+    if (obj1.finalTotal < obj2.finalTotal) {
+      return 1;
+    }
+
+    if (obj1.finalTotal > obj2.finalTotal) {
+      return -1;
+    }
+
+    return 0;
+  });
 
   return (
     <div className="appSection">
       <h1>Results</h1>
-      {jobs.map((item, index) => {
+      {_jobs.map((item, index) => {
         return (
           <div key={index} className="appSection resultsSection">
             <p>Job: {item.job}</p>
             <p>Pros Score: {item.prosTotal}</p>
             <p>Cons Score: {item.consTotal}</p>
-            <p>Final Score: {item.prosTotal - item.consTotal}</p>
+            <p>Final Score: {item.finalTotal}</p>
           </div>
         );
       })}
