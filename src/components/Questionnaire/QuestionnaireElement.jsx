@@ -9,10 +9,10 @@ const QuestionnaireElement = (props) => {
   const { pro, weight, con } = props;
 
   return (
-    <div className="appSection">
+    <div className="appSection questionnaireElement">
       {jobs.map((item, index) => {
         return (
-          <div key={index} className="table-layout questionnaireSection">
+          <div key={index} className="table-layout">
             <h3>{item.job}</h3>
             <CheckboxElement
               job={item.job}

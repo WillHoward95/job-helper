@@ -63,11 +63,15 @@ select {
 }
 
 .add-job-textarea {
-  margin: 20px 0 0 0;
+  margin: 10px 0 0 0;
 }
 
-.inputs {
-  margin: 6.5px 0;
+.edit-input {
+  margin: 10px 0 0 0;
+}
+
+.add-input {
+  margin: 13px 0 0 0;
 }
 
 .table-layout {
@@ -87,4 +91,8 @@ h3 {
 .resultsSection {
   padding-top: 15px;
   padding-bottom: 10px;
+}
+
+.questionnaireElement {
+  padding: 10px;
 }

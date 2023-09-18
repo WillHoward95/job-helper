@@ -27,7 +27,7 @@ const ConsItem = (props) => {
 
   return editBoolean ? (
     <div key={index}>
-      <div className="table-layout inputs">
+      <div className="table-layout edit-input">
         <textarea
           defaultValue={item.con}
           onInput={(e) => {

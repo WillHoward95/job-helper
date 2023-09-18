@@ -38,11 +38,11 @@ const ProsListInputs = () => {
         return <ProItem item={item} index={index} key={index} />;
       })}
       {inputBoolean ? (
-        <div>
-          <div className="table-layout">
+        <div className="inputs add-input">
+          {/* <div className="table-layout">
             <h3>Pro:</h3>
             <h3>Value:</h3>
-          </div>
+          </div> */}
           <div className="table-layout">
             <textarea
               autoFocus
