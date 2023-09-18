@@ -30,11 +30,19 @@ const JobsItem = (props) => {
         >
           Save
         </button>
-        <button className="button half-button">Delete</button>
+        <button
+          className="button half-button"
+          onClick={() => {
+            setEditText("");
+            setEditBoolean(!editBoolean);
+          }}
+        >
+          Cancel
+        </button>
       </div>
     </div>
   ) : (
-    <div>
+    <div className="proConJobItem">
       <h3 key={index}>{item.job}</h3>
       <div className="half-button-container">
         <button

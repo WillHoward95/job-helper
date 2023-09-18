@@ -88,7 +88,7 @@ const ConsItem = (props) => {
       </div>
     </div>
   ) : (
-    <div key={index}>
+    <div key={index} className="proConJobItem">
       <div className="table-layout">
         <h3>{item.con}</h3>
         <h3 className="weighting">{item.weight}</h3>

@@ -100,3 +100,9 @@ h3 {
 .weighting {
   word-break: normal;
 }
+
+.proConJobItem {
+  border: 1px solid white;
+  padding: 0 10px 10px 10px;
+  margin: 10px 0 10px 0;
+}

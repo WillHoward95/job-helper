@@ -1,16 +1,17 @@
 import ProsQuestionnaire from "./Questionnaire/ProsQuestionnaire";
 import ConsQuestionnaire from "./Questionnaire/ConsQuestionnaire";
-import { useNavigate } from "react-router-dom";
-import { removeProsCons } from "../features/job/jobSlice";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 
 const Questionnaire = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { pathname } = useLocation();
 
-  // window.onpopstate = () => {
-  //   dispatch(removeProsCons());
-  // };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <div>

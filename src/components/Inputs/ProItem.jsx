@@ -88,7 +88,7 @@ const ProItem = (props) => {
       </div>
     </div>
   ) : (
-    <div key={index}>
+    <div key={index} className="proConJobItem">
       <div className="table-layout">
         <h3>{item.pro}</h3>
         <h3 className="weighting">{item.weight}</h3>

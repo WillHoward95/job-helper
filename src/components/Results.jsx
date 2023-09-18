@@ -1,20 +1,46 @@
-import {
-  selectJobs,
-  selectPros,
-  selectCons,
-  removeProsCons,
-} from "../features/job/jobSlice";
-import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { selectJobs, selectPros, selectCons } from "../features/job/jobSlice";
+import { useSelector } from "react-redux";
+import { useNavigate, useLocation } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useEffect } from "react";
 
 const Results = () => {
   const jobs = useSelector(selectJobs);
   const pros = useSelector(selectPros);
   const cons = useSelector(selectCons);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const { pathname } = useLocation();
 
-  console.log(jobs);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  const notifySuccess = () => {
+    toast.success(`Answers Saved`, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  };
+
+  const notifyError = () => {
+    toast.error(`Answers have not been saved`, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  };
 
   const _jobs = JSON.parse(JSON.stringify(jobs));
 
@@ -58,9 +84,15 @@ const Results = () => {
       <button
         className="button main-button"
         onClick={() => {
-          localStorage.setItem("job-helper-jobs", JSON.stringify(jobs));
-          localStorage.setItem("job-helper-pros", JSON.stringify(pros));
-          localStorage.setItem("job-helper-cons", JSON.stringify(cons));
+          try {
+            localStorage.setItem("job-helper-jobs", JSON.stringify(jobs));
+            localStorage.setItem("job-helper-pros", JSON.stringify(pros));
+            localStorage.setItem("job-helper-cons", JSON.stringify(cons));
+            notifySuccess();
+          } catch (error) {
+            console.log(error);
+            notifyError();
+          }
         }}
       >
         Save Answers
@@ -73,6 +105,7 @@ const Results = () => {
       >
         Back to Start
       </button>
+      <ToastContainer pauseOnFocusLoss={false} />
     </div>
   );
 };
