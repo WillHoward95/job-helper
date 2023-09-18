@@ -40,8 +40,8 @@ const ConsListInputs = () => {
       {inputBoolean ? (
         <div>
           <div className="table-layout">
-            <p>Con:</p>
-            <p>Value:</p>
+            <h3>Con:</h3>
+            <h3>Value:</h3>
           </div>
           <div className="table-layout">
             <textarea
@@ -53,7 +53,7 @@ const ConsListInputs = () => {
 
             <select
               onChange={(e) => {
-                setNewConWeight(e.target.value);
+                setNewConWeight(Number(e.target.value));
               }}
             >
               <option value={0}>0</option>

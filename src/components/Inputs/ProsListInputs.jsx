@@ -40,8 +40,8 @@ const ProsListInputs = () => {
       {inputBoolean ? (
         <div>
           <div className="table-layout">
-            <p>Pro:</p>
-            <p>Value:</p>
+            <h3>Pro:</h3>
+            <h3>Value:</h3>
           </div>
           <div className="table-layout">
             <textarea
@@ -52,7 +52,7 @@ const ProsListInputs = () => {
             ></textarea>
             <select
               onChange={(e) => {
-                setNewProWeight(e.target.value);
+                setNewProWeight(Number(e.target.value));
               }}
             >
               <option value={0}>0</option>

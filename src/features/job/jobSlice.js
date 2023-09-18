@@ -1,18 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  jobs: [
-    { job: "bartender", pros: [], cons: [], prosTotal: 0, consTotal: 0 },
-    { job: "makeup artist", pros: [], cons: [], prosTotal: 0, consTotal: 0 },
-  ],
-  pros: [
-    { pro: "good hours", weight: 10 },
-    { pro: "good pay", weight: 8 },
-  ],
-  cons: [
-    { con: "bad hours", weight: 9 },
-    { con: "bad pay", weight: 9 },
-  ],
+  jobs: [],
+  pros: [],
+  cons: [],
 };
 
 export const jobSlice = createSlice({
