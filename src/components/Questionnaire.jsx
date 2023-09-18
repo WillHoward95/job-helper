@@ -24,6 +24,14 @@ const Questionnaire = () => {
       >
         Get Results
       </button>
+      <button
+        className="button main-button"
+        onClick={() => {
+          navigate("/inputs");
+        }}
+      >
+        Back to Start
+      </button>
     </div>
   );
 };

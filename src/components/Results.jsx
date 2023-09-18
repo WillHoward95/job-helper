@@ -50,16 +50,6 @@ const Results = () => {
       <button
         className="button main-button"
         onClick={() => {
-          // dispatch(removeProsCons());
-          navigate("/inputs");
-        }}
-      >
-        Back to Start
-      </button>
-      <button
-        className="button main-button"
-        onClick={() => {
-          // dispatch(removeProsCons());
           navigate("/questionnaire");
         }}
       >
@@ -74,6 +64,14 @@ const Results = () => {
         }}
       >
         Save Answers
+      </button>
+      <button
+        className="button main-button"
+        onClick={() => {
+          navigate("/inputs");
+        }}
+      >
+        Back to Start
       </button>
     </div>
   );
