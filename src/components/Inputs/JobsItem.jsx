@@ -9,7 +9,7 @@ const JobsItem = (props) => {
   let [editText, setEditText] = useState("");
 
   return editBoolean ? (
-    <div>
+    <div className="proConJobItem">
       <textarea
         className="job-textarea"
         key={index}

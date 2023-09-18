@@ -12,7 +12,7 @@ const ConsItem = (props) => {
   let [newConWeight, setNewConWeight] = useState();
 
   return editBoolean ? (
-    <div key={index}>
+    <div key={index} className="proConJobItem">
       <div className="table-layout edit-input">
         <textarea
           defaultValue={item.con}
