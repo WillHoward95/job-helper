@@ -9,6 +9,7 @@ const JobsListInputs = () => {
   const dispatch = useDispatch();
   const jobs = useSelector(selectJobs);
   let [inputBoolean, setInputBoolean] = useState(false);
+  let [comparisonBoolean, setComparisonBoolean] = useState(false);
   let [newJobInput, setNewJobInput] = useState("");
 
   const notify = () => {
@@ -26,10 +27,21 @@ const JobsListInputs = () => {
 
   return (
     <div className="appSection">
+      {/* where the user enters their comparison */}
+      <div>
+        <h2>
+          Enter what you would like to compare e.g. Universities, Jobs etc.
+        </h2>
+        <textarea className="job-textarea add-job-textarea"></textarea>
+        <button className="button add-button">Save comparison</button>
+      </div>
+
       <h1>Jobs</h1>
+      {/* map over the comparison array and return a JobItem for each one */}
       {jobs.map((item, index) => {
         return <JobsItem index={index} item={item} key={index} />;
       })}
+      {/* if the input boolean is true we show a text area for them to enter a new job */}
       {inputBoolean ? (
         <>
           <textarea
@@ -54,6 +66,7 @@ const JobsListInputs = () => {
                     })
                   );
                 }
+                // toast to notify if they haven't enter both a title and value
                 if (!newJobInput && inputBoolean) {
                   notify();
                 }
@@ -63,6 +76,7 @@ const JobsListInputs = () => {
             >
               Save Job
             </button>
+            {/* if the input boolean is true add a button that says cancel that turns off the input boolean */}
             {inputBoolean ? (
               <button
                 className="button half-button"
@@ -78,6 +92,7 @@ const JobsListInputs = () => {
           </div>
         </>
       ) : (
+        // if the input boolean is false show a button to add a new job
         <>
           <button
             className="button add-button"

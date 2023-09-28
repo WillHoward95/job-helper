@@ -1,7 +1,7 @@
 import React from "react";
-import JobsListInputs from "./Inputs/JobsListInputs";
-import ProsListInputs from "./Inputs/ProsListInputs";
-import ConsListInputs from "./Inputs/ConsListInputs";
+import JobsListInputs from "./Inputs/JobsList";
+import ProsListInputs from "./Inputs/ProsList";
+import ConsListInputs from "./Inputs/ConsList";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { loadSave } from "../features/job/jobSlice";

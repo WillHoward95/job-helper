@@ -4,6 +4,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
+import NavBar from "./NavBar";
 
 const Results = () => {
   const jobs = useSelector(selectJobs);
@@ -62,17 +63,45 @@ const Results = () => {
 
   return (
     <div className="appSection">
+      <NavBar />
       <h1>Results</h1>
-      {_jobs.map((item, index) => {
-        return (
-          <div key={index} className="appSection resultsSection">
-            <h3>Job: {item.job}</h3>
-            <p>Pros Score: {item.prosTotal}</p>
-            <p>Cons Score: {item.consTotal}</p>
-            <h3>Final Score: {item.finalTotal}</h3>
-          </div>
-        );
-      })}
+      <table>
+        <thead>
+          <tr>
+            <th>Job</th>
+            <th>
+              Pros
+              <br />
+              Total
+            </th>
+            <th>
+              Cons
+              <br />
+              Total
+            </th>
+            <th>
+              Final
+              <br />
+              Score
+            </th>
+          </tr>
+        </thead>
+
+        {_jobs.map((item, index) => {
+          return (
+            <tbody>
+              <tr>
+                <td>
+                  {index + 1}: {item.job}
+                </td>
+                <td>{item.prosTotal}</td>
+                <td>{item.consTotal}</td>
+                <td>{item.finalTotal}</td>
+              </tr>
+            </tbody>
+          );
+        })}
+      </table>
       <button
         className="button main-button"
         onClick={() => {
@@ -100,7 +129,7 @@ const Results = () => {
       <button
         className="button main-button"
         onClick={() => {
-          navigate("/inputs");
+          navigate("/prosinputs");
         }}
       >
         Back to Start

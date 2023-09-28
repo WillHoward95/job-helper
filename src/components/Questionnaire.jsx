@@ -3,6 +3,7 @@ import ConsQuestionnaire from "./Questionnaire/ConsQuestionnaire";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
+import NavBar from "./NavBar";
 
 const Questionnaire = () => {
   const navigate = useNavigate();
@@ -15,6 +16,7 @@ const Questionnaire = () => {
 
   return (
     <div>
+      <NavBar />
       <ProsQuestionnaire />
       <ConsQuestionnaire />
       <button

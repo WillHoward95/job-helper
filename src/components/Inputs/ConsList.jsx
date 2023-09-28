@@ -1,19 +1,27 @@
-import { selectPros, setNewPro } from "../../features/job/jobSlice";
+import { selectCons, setNewCon } from "../../features/job/jobSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
-import ProItem from "./ProItem.jsx";
+import ConsItem from "./ConsItem";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const ProsListInputs = () => {
+const ConsListInputs = () => {
   const dispatch = useDispatch();
-  const pros = useSelector(selectPros);
+  const cons = useSelector(selectCons);
   let [inputBoolean, setInputBoolean] = useState(false);
-  let [newProInput, setNewProInput] = useState("");
-  let [newProWeight, setNewProWeight] = useState();
+  let [newConInput, setNewConInput] = useState("");
+  let [newConWeight, setNewConWeight] = useState();
+
+  const consTotal = (cons) => {
+    let counter = 0;
+    cons.forEach((item) => {
+      counter += Number(item.weight);
+    });
+    return counter;
+  };
 
   const notify = () => {
-    toast.error(`Please enter a title and a weight to add a pro`, {
+    toast.error(`Please enter a title and a weight to add a con`, {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -28,14 +36,14 @@ const ProsListInputs = () => {
   return (
     <div className="appSection">
       <div>
-        <h1>Pros</h1>
+        <h1>Cons</h1>
         <div className="table-layout">
-          <h3>Pro:</h3>
+          <h3>Con:</h3>
           <h3>Value:</h3>
         </div>
       </div>
-      {pros.map((item, index) => {
-        return <ProItem item={item} index={index} key={index} />;
+      {cons.map((item, index) => {
+        return <ConsItem item={item} index={index} key={index} />;
       })}
       {inputBoolean ? (
         <div className="inputs add-input">
@@ -43,12 +51,13 @@ const ProsListInputs = () => {
             <textarea
               autoFocus
               onInput={(e) => {
-                setNewProInput((newProInput = e.target.value));
+                setNewConInput((newConInput = e.target.value));
               }}
             ></textarea>
+
             <select
               onChange={(e) => {
-                setNewProWeight(Number(e.target.value));
+                setNewConWeight(Number(e.target.value));
               }}
             >
               <option value={0}>0</option>
@@ -71,20 +80,20 @@ const ProsListInputs = () => {
       <button
         className="button add-button"
         onClick={() => {
-          if (newProInput && newProWeight) {
-            dispatch(setNewPro({ pro: newProInput, weight: newProWeight }));
+          if (newConInput && newConWeight) {
+            dispatch(setNewCon({ con: newConInput, weight: newConWeight }));
           }
-          if (!newProInput || !newProWeight) {
+          if (!newConInput || !newConWeight) {
             if (inputBoolean) {
               notify();
             }
           }
           setInputBoolean(!inputBoolean);
-          setNewProInput("");
-          setNewProWeight(undefined);
+          setNewConInput("");
+          setNewConWeight(undefined);
         }}
       >
-        {inputBoolean ? "Save Pro" : "Add a Pro"}
+        {inputBoolean ? "Save Con" : "Add a Con"}
       </button>
       {inputBoolean ? (
         <button
@@ -98,8 +107,12 @@ const ProsListInputs = () => {
       ) : (
         <></>
       )}
+      <div className="table-layout">
+        <h2>Life Score:</h2>
+        <h2>{consTotal(cons)}</h2>
+      </div>
     </div>
   );
 };
 
-export default ProsListInputs;
+export default ConsListInputs;

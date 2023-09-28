@@ -13,11 +13,11 @@ body {
 }
 
 .app {
-  min-width: 200px;
-  width: 35%;
+  min-width: 350px;
+  width: 95%;
   max-width: 450px;
   margin: 0 auto;
-  padding-top: 50px;
+  padding-top: 60px;
   padding-bottom: 50px;
 }
 
@@ -56,6 +56,7 @@ select {
   background-color: #025c9c;
   width: 49%;
   border: 1px solid white;
+  resize: none;
 }
 
 .job-textarea {
@@ -105,4 +106,36 @@ h3 {
   border: 1px solid white;
   padding: 10px;
   margin: 10px 0 10px 0;
+}
+
+td,
+th {
+  border: 1px solid white;
+  padding: 10px;
+}
+
+th {
+  text-align: left;
+  white-space: nowrap;
+  /* word-break: break-all; */
+}
+
+.navbar {
+  min-width: 350px;
+  width: 95%;
+  max-width: 450px;
+  position: fixed;
+  height: 40px;
+  top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
