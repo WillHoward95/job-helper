@@ -1,4 +1,9 @@
-import { selectJobs, selectPros, selectCons } from "../features/job/jobSlice";
+import {
+  selectJobs,
+  selectPros,
+  selectCons,
+  selectComparisonTitle,
+} from "../features/job/jobSlice";
 import { useSelector } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
@@ -10,6 +15,7 @@ const Results = () => {
   const jobs = useSelector(selectJobs);
   const pros = useSelector(selectPros);
   const cons = useSelector(selectCons);
+  const comparison = useSelector(selectComparisonTitle);
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
@@ -68,7 +74,7 @@ const Results = () => {
       <table>
         <thead>
           <tr>
-            <th>Job</th>
+            <th>{comparison.slice(0, comparison.length - 1)}</th>
             <th>
               Pros
               <br />

@@ -30,7 +30,7 @@ const ProsOnboard = () => {
   return (
     <div>
       <NavBar />
-      <div>
+      <div className="appSection">
         <p>
           MY HAPPY APP is the place to go to keep you focussed on the things
           that really matter to you and enables you to make decisions about your

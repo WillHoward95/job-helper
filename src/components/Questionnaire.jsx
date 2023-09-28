@@ -30,7 +30,7 @@ const Questionnaire = () => {
       <button
         className="button main-button"
         onClick={() => {
-          navigate("/inputs");
+          navigate("/");
         }}
       >
         Back to Start

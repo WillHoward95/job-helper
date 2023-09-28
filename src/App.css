@@ -125,11 +125,13 @@ th {
   width: 95%;
   max-width: 450px;
   position: fixed;
-  height: 40px;
-  top: 20px;
+  height: 80px;
+  top: 0px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: #043355;
+  z-index: 1;
 }
 
 a {

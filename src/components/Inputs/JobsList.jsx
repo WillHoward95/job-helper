@@ -1,4 +1,9 @@
-import { selectJobs, setNewJob } from "../../features/job/jobSlice";
+import {
+  selectComparisonTitle,
+  selectJobs,
+  setNewJob,
+  setComparisonTitle,
+} from "../../features/job/jobSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import JobsItem from "./JobsItem";
@@ -11,9 +16,11 @@ const JobsListInputs = () => {
   let [inputBoolean, setInputBoolean] = useState(false);
   let [comparisonBoolean, setComparisonBoolean] = useState(false);
   let [newJobInput, setNewJobInput] = useState("");
+  let [newComparisonInput, setNewComparisonInput] = useState("");
+  const comparison = useSelector(selectComparisonTitle);
 
   const notify = () => {
-    toast.error(`Please enter a title for the job`, {
+    toast.error(`Please enter a title`, {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -32,11 +39,28 @@ const JobsListInputs = () => {
         <h2>
           Enter what you would like to compare e.g. Universities, Jobs etc.
         </h2>
-        <textarea className="job-textarea add-job-textarea"></textarea>
-        <button className="button add-button">Save comparison</button>
+        <textarea
+          onInput={(e) => {
+            setNewComparisonInput(e.target.value);
+          }}
+          className="job-textarea add-job-textarea"
+        ></textarea>
+        <button
+          onClick={() => {
+            if (newComparisonInput) {
+              dispatch(setComparisonTitle(newComparisonInput));
+              setNewComparisonInput("");
+            } else {
+              notify();
+            }
+          }}
+          className="button add-button"
+        >
+          Save comparison
+        </button>
       </div>
 
-      <h1>Jobs</h1>
+      <h1>{comparison}</h1>
       {/* map over the comparison array and return a JobItem for each one */}
       {jobs.map((item, index) => {
         return <JobsItem index={index} item={item} key={index} />;
@@ -74,7 +98,7 @@ const JobsListInputs = () => {
                 setInputBoolean(!inputBoolean);
               }}
             >
-              Save Job
+              Save {comparison.slice(0, comparison.length - 1)}
             </button>
             {/* if the input boolean is true add a button that says cancel that turns off the input boolean */}
             {inputBoolean ? (
@@ -101,7 +125,7 @@ const JobsListInputs = () => {
               setInputBoolean(!inputBoolean);
             }}
           >
-            Add a Job
+            Add a {comparison.slice(0, comparison.length - 1)}
           </button>
         </>
       )}

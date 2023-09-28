@@ -13,7 +13,7 @@ const ConsOnboard = () => {
   return (
     <div>
       <NavBar />
-      <div>
+      <div className="appSection">
         <p>
           LIFE is not always perfect and there will always be negatives or
           obstacles to your goals. This section is to identify what elements may
