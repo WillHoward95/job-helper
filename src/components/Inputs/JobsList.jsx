@@ -9,15 +9,22 @@ import { useState } from "react";
 import JobsItem from "./JobsItem";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { logDOM } from "@testing-library/react";
 
 const JobsListInputs = () => {
   const dispatch = useDispatch();
   const jobs = useSelector(selectJobs);
   let [inputBoolean, setInputBoolean] = useState(false);
-  let [comparisonBoolean, setComparisonBoolean] = useState(false);
   let [newJobInput, setNewJobInput] = useState("");
   let [newComparisonInput, setNewComparisonInput] = useState("");
   const comparison = useSelector(selectComparisonTitle);
+  let singularComparison;
+
+  if (comparison[comparison.length - 1] === "s") {
+    singularComparison = comparison.slice(0, comparison.length - 1);
+  } else {
+    singularComparison = comparison;
+  }
 
   const notify = () => {
     toast.error(`Please enter a title`, {
@@ -98,7 +105,7 @@ const JobsListInputs = () => {
                 setInputBoolean(!inputBoolean);
               }}
             >
-              Save {comparison.slice(0, comparison.length - 1)}
+              Save {singularComparison}
             </button>
             {/* if the input boolean is true add a button that says cancel that turns off the input boolean */}
             {inputBoolean ? (
@@ -125,7 +132,7 @@ const JobsListInputs = () => {
               setInputBoolean(!inputBoolean);
             }}
           >
-            Add a {comparison.slice(0, comparison.length - 1)}
+            Add a {singularComparison}
           </button>
         </>
       )}

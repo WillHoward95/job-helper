@@ -6,7 +6,7 @@ const NavBar = () => {
       <a href="/">
         <h1>My Happy App</h1>
       </a>
-      <img src={SmileyFace} alt="React Logo" />
+      <img src={SmileyFace} alt="Smiley Face" />
     </div>
   );
 };
