@@ -42,7 +42,7 @@ const ConsOnboard = () => {
         <p>
           <em>"The business must be based in a city."</em>
         </p>
-        <p>Not keen on this but it's only a small issue, so it scores a 7.</p>
+        <p>Not keen on this but it's only a small issue, so it scores a 2.</p>
       </div>
       <button
         className="button main-button"

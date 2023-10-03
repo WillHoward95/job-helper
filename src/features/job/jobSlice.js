@@ -4,7 +4,6 @@ const initialState = {
   jobs: [],
   pros: [],
   cons: [],
-  comparisonTitle: "Jobs",
 };
 
 export const jobSlice = createSlice({

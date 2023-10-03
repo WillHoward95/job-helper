@@ -16,6 +16,11 @@ const Questionnaire = () => {
     <div>
       <NavBar />
       <div className="appSection">
+        <p className="appSection onboard">
+          Now it's time to give your answers. Simply click the smiley/frowney
+          face if you believe a pro/con applies to each job/course/business
+          idea.
+        </p>
         <ProsQuestionnaire />
         <ConsQuestionnaire />
       </div>

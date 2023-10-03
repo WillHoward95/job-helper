@@ -89,7 +89,7 @@ const ProsList = () => {
           setNewProWeight(undefined);
         }}
       >
-        {inputBoolean ? "Save Pro" : "Add a Pro"}
+        {inputBoolean ? "Save" : "Add"}
       </button>
       {inputBoolean ? (
         <button

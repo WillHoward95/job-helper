@@ -93,7 +93,7 @@ const ConsListInputs = () => {
           setNewConWeight(undefined);
         }}
       >
-        {inputBoolean ? "Save Con" : "Add a Con"}
+        {inputBoolean ? "Save" : "Add"}
       </button>
       {inputBoolean ? (
         <button
