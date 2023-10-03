@@ -131,6 +131,9 @@ export const jobSlice = createSlice({
       });
       console.log(state.jobs);
     },
+    setComparisonTitle: (state, action) => {
+      state.comparisonTitle = action.payload;
+    },
   },
 });
 
@@ -150,10 +153,12 @@ export const {
   editCons,
   deleteItem,
   removeProsCons,
+  setComparisonTitle,
 } = jobSlice.actions;
 
 export const selectJobs = (state) => state.job.jobs;
 export const selectPros = (state) => state.job.pros;
 export const selectCons = (state) => state.job.cons;
+export const selectComparisonTitle = (state) => state.job.comparisonTitle;
 
 export default jobSlice.reducer;

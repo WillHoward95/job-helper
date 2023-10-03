@@ -1,12 +1,11 @@
 import ProsQuestionnaire from "./Questionnaire/ProsQuestionnaire";
 import ConsQuestionnaire from "./Questionnaire/ConsQuestionnaire";
 import { useNavigate, useLocation } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import { useEffect } from "react";
+import NavBar from "./NavBar";
 
 const Questionnaire = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -15,8 +14,16 @@ const Questionnaire = () => {
 
   return (
     <div>
-      <ProsQuestionnaire />
-      <ConsQuestionnaire />
+      <NavBar />
+      <div className="appSection">
+        <p className="appSection onboard">
+          Now it's time to give your answers. Simply click the smiley/frowney
+          face if you believe a pro/con applies to each job/course/business
+          idea.
+        </p>
+        <ProsQuestionnaire />
+        <ConsQuestionnaire />
+      </div>
       <button
         className="button main-button"
         onClick={() => {
@@ -28,7 +35,7 @@ const Questionnaire = () => {
       <button
         className="button main-button"
         onClick={() => {
-          navigate("/inputs");
+          navigate("/");
         }}
       >
         Back to Start

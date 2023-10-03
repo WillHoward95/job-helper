@@ -13,11 +13,11 @@ body {
 }
 
 .app {
-  min-width: 200px;
-  width: 35%;
-  max-width: 450px;
+  min-width: 350px;
+  width: 95%;
+  max-width: 500px;
   margin: 0 auto;
-  padding-top: 50px;
+  padding-top: 60px;
   padding-bottom: 50px;
 }
 
@@ -56,6 +56,7 @@ select {
   background-color: #025c9c;
   width: 49%;
   border: 1px solid white;
+  resize: none;
 }
 
 .job-textarea {
@@ -93,7 +94,7 @@ h3 {
   padding-bottom: 10px;
 }
 
-.questionnaireElement {
+.questionnaireContainer {
   padding: 10px;
 }
 
@@ -105,4 +106,70 @@ h3 {
   border: 1px solid white;
   padding: 10px;
   margin: 10px 0 10px 0;
+}
+
+td,
+th {
+  border: 1px solid white;
+  padding: 10px;
+}
+
+th {
+  text-align: left;
+  white-space: nowrap;
+  /* word-break: break-all; */
+}
+
+.navbar {
+  min-width: 350px;
+  width: 95%;
+  max-width: 500px;
+  position: fixed;
+  height: 80px;
+  top: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #043355;
+  z-index: 1;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#cb {
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.smiley {
+  width: 2.5em;
+  position: absolute;
+  top: 0px;
+  left: -4px;
+}
+
+.checkboxContainer {
+  position: relative;
+  height: 40px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.onboard {
+  padding: 10px;
+}
+
+html {
+  overflow-y: scroll;
 }

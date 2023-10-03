@@ -1,12 +1,12 @@
 import { selectCons } from "../../features/job/jobSlice";
 import { useSelector } from "react-redux";
-import QuestionnaireElement from "./QuestionnaireElement";
+import QuestionnaireElementCon from "./QuestionnaireElementCon";
 
 const ConsQuestionnaire = () => {
   const cons = useSelector(selectCons);
 
   return (
-    <div className="appSection">
+    <div>
       <h1>Cons</h1>
       {cons.map((item, index) => {
         return (
@@ -19,7 +19,7 @@ const ConsQuestionnaire = () => {
               <h3>{item.con}</h3>
               <h3>{item.weight}</h3>
             </div>
-            <QuestionnaireElement con={item.con} weight={item.weight} />
+            <QuestionnaireElementCon con={item.con} weight={item.weight} />
           </div>
         );
       })}

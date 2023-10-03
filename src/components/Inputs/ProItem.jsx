@@ -90,7 +90,9 @@ const ProItem = (props) => {
   ) : (
     <div key={index} className="proConJobItem">
       <div className="table-layout">
-        <h3>{item.pro}</h3>
+        <h3>
+          {index + 1}. {item.pro}
+        </h3>
         <h3 className="weighting">{item.weight}</h3>
       </div>
       <div className="half-button-container">

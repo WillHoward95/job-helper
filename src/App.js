@@ -1,5 +1,10 @@
 import React from "react";
-import Inputs from "./components/Inputs";
+import ProsOnboard from "./components/ProsOnboard";
+import ConsOnboard from "./components/ConsOnboard";
+import JobsOnboard from "./components/JobsOnboard";
+import ProsInputs from "./components/ProsInputs";
+import ConsInputs from "./components/ConsInputs";
+import JobsInputs from "./components/JobsInputs";
 import Questionnaire from "./components/Questionnaire";
 import Results from "./components/Results";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -10,8 +15,13 @@ const App = () => {
     <div className="app">
       <BrowserRouter>
         <Routes>
-          <Route index element={<Inputs />}></Route>
-          <Route path="/inputs" element={<Inputs />}></Route>
+          <Route index element={<ProsOnboard />}></Route>
+          <Route path="/prosonboard" element={<ProsOnboard />}></Route>
+          <Route path="/prosinputs" element={<ProsInputs />}></Route>
+          <Route path="/consonboard" element={<ConsOnboard />}></Route>
+          <Route path="/consinputs" element={<ConsInputs />}></Route>
+          <Route path="/jobsonboard" element={<JobsOnboard />}></Route>
+          <Route path="/jobsinputs" element={<JobsInputs />}></Route>
           <Route path="/questionnaire" element={<Questionnaire />}></Route>
           <Route path="/results" element={<Results />}></Route>
         </Routes>
