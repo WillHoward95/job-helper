@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import SmileyChecked from "../../emoticon-emotion-expression-face-smiley-2-svgrepo-com.svg";
 import SmileyUnchecked from "../../emoticon-emotion-expression-face-smiley-2-svgrepo-com unchecked.svg";
 
-const CheckboxElement = (props) => {
+const CheckboxElementPro = (props) => {
   const dispatch = useDispatch();
   const { job, pro, weight } = props;
   const jobs = useSelector(selectJobs);
@@ -53,4 +53,4 @@ const CheckboxElement = (props) => {
   );
 };
 
-export default CheckboxElement;
+export default CheckboxElementPro;

@@ -72,10 +72,10 @@ const JobsInputs = () => {
           <button
             className="button main-button"
             onClick={() => {
-              navigate("/questionnaire");
+              navigate("/resultstable");
             }}
           >
-            Begin questionnaire
+            Enter Results
           </button>
         </div>
       ) : (

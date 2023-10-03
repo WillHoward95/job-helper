@@ -6,7 +6,7 @@ import ProsInputs from "./components/ProsInputs";
 import ConsInputs from "./components/ConsInputs";
 import JobsInputs from "./components/JobsInputs";
 import Questionnaire from "./components/Questionnaire";
-import Results from "./components/Results";
+import ResultsTable from "./components/ResultsTable";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 
@@ -23,7 +23,7 @@ const App = () => {
           <Route path="/jobsonboard" element={<JobsOnboard />}></Route>
           <Route path="/jobsinputs" element={<JobsInputs />}></Route>
           <Route path="/questionnaire" element={<Questionnaire />}></Route>
-          <Route path="/results" element={<Results />}></Route>
+          <Route path="/resultstable" element={<ResultsTable />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

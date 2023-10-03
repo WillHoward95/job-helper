@@ -15,16 +15,16 @@ body {
 .app {
   min-width: 350px;
   width: 95%;
-  max-width: 500px;
   margin: 0 auto;
   padding-top: 60px;
   padding-bottom: 50px;
 }
 
 .appSection {
+  max-width: 500px;
   border: 1px solid white;
   padding: 0 20px 20px 20px;
-  margin: 20px 0;
+  margin: 20px auto;
   background-color: #03416e;
 }
 
@@ -116,7 +116,7 @@ th {
 
 th {
   text-align: left;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   /* word-break: break-all; */
 }
 
@@ -152,17 +152,16 @@ a:hover {
 }
 
 .smiley {
-  width: 2.5em;
+  width: 2.3em;
   position: absolute;
-  top: 0px;
-  left: -4px;
+  top: -1px;
 }
 
 .checkboxContainer {
   position: relative;
   height: 40px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
 }
 
@@ -172,4 +171,21 @@ a:hover {
 
 html {
   overflow-y: scroll;
+}
+
+.resultsTable {
+  max-width: 1000px;
+  min-width: 600px;
+}
+
+.no-wrap {
+  white-space: nowrap;
+}
+
+.table-highlight {
+  background-color: #025c9c;
+}
+
+.table-final-score {
+  font-size: 1.2em;
 }
