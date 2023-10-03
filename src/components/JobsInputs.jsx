@@ -23,8 +23,6 @@ const JobsInputs = () => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  console.log(comparison);
-
   const notify = () => {
     toast.error(`Please enter a title`, {
       position: "top-right",

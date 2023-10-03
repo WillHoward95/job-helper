@@ -20,6 +20,13 @@ const ResultsTable = () => {
   const comparison = useSelector(selectComparisonTitle);
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  let singularComparison;
+
+  if (comparison[comparison.length - 1] === "s") {
+    singularComparison = comparison.slice(0, -1);
+  } else {
+    singularComparison = comparison;
+  }
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -63,12 +70,24 @@ const ResultsTable = () => {
     <div className="tableContainer">
       <NavBar />
       <div className="appSection">
-        <h1>Results</h1>
+        <div className="appSection">
+          <p>
+            Now it's time to assess your options against those values. In my
+            example, a perfect score would appear to be 18.
+          </p>
+          <p>Tick all that apply by clicking on the smiley/frowney faces</p>
+          <p>
+            Get your friends and family to validate your PRO's and CON's and
+            whether each option scores against them. Remove as much subjectivity
+            as possible and make a choice that aligns with what really matters
+            in your life.
+          </p>
+        </div>
         <table>
           <thead>
             <tr>
               <th className="table-highlight" colSpan={2}>
-                {comparison.slice(0, comparison.length - 1)}
+                {singularComparison}
               </th>
               {_jobs.map((item) => {
                 return <th className="table-highlight">{item.job}</th>;
