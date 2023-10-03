@@ -11,7 +11,7 @@ const ConsOnboard = () => {
   }, [pathname]);
 
   return (
-    <div>
+    <div className="appContainer">
       <NavBar />
       <div className="appSection">
         <p>

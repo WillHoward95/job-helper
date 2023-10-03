@@ -14,7 +14,7 @@ const ProsInputs = () => {
   }, [pathname]);
 
   return (
-    <div>
+    <div className="appContainer">
       <NavBar />
       <ProsList />
       <button

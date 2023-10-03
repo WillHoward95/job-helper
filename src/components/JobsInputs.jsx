@@ -23,6 +23,8 @@ const JobsInputs = () => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
+  console.log(comparison);
+
   const notify = () => {
     toast.error(`Please enter a title`, {
       position: "top-right",
@@ -37,7 +39,7 @@ const JobsInputs = () => {
   };
 
   return (
-    <div>
+    <div className="appContainer">
       <NavBar />
       {/* where the user enters their comparison */}
       <div className="appSection">
@@ -45,6 +47,7 @@ const JobsInputs = () => {
           Enter what you would like to compare e.g. Universities, Jobs etc.
         </h2>
         <textarea
+          defaultValue={comparison}
           onInput={(e) => {
             setNewComparisonInput(e.target.value);
           }}

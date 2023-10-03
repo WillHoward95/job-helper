@@ -51,8 +51,6 @@ const ResultsTable = () => {
     });
   };
 
-  console.log(pros, cons, jobs);
-
   const _jobs = JSON.parse(JSON.stringify(jobs));
   const _pros = JSON.parse(JSON.stringify(pros));
   const _cons = JSON.parse(JSON.stringify(cons));
@@ -61,36 +59,10 @@ const ResultsTable = () => {
     item.finalTotal = item.prosTotal - item.consTotal;
   });
 
-  //   _jobs.sort((obj1, obj2) => {
-  //     if (obj1.finalTotal < obj2.finalTotal) {
-  //       return 1;
-  //     }
-
-  //     if (obj1.finalTotal > obj2.finalTotal) {
-  //       return -1;
-  //     }
-
-  //     return 0;
-  //   });
-
-  const table = [
-    _jobs.map((item) => {
-      return item.job;
-    }),
-    _pros.map((item) => {
-      return item.pro;
-    }),
-    _cons.map((item) => {
-      return item.con;
-    }),
-  ];
-
-  console.log(table);
-
   return (
-    <div>
+    <div className="tableContainer">
       <NavBar />
-      <div className="appSection resultsTable">
+      <div className="appSection">
         <h1>Results</h1>
         <table>
           <thead>
@@ -189,6 +161,7 @@ const ResultsTable = () => {
               localStorage.setItem("job-helper-jobs", JSON.stringify(jobs));
               localStorage.setItem("job-helper-pros", JSON.stringify(pros));
               localStorage.setItem("job-helper-cons", JSON.stringify(cons));
+              localStorage.setItem("job-helper-comparison", comparison);
               notifySuccess();
             } catch (error) {
               console.log(error);

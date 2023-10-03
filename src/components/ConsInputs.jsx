@@ -14,7 +14,7 @@ const ConsInputs = () => {
   }, [pathname]);
 
   return (
-    <div>
+    <div className="appContainer">
       <NavBar />
       <ConsList />
       <button

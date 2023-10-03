@@ -12,16 +12,24 @@ body {
   background-color: #043355;
 }
 
-.app {
+.appContainer {
   min-width: 350px;
   width: 95%;
+  margin: 0 auto;
+  padding-top: 60px;
+  padding-bottom: 50px;
+  max-width: 600px;
+}
+
+.tableContainer {
+  min-width: 1000px;
+  width: inherit;
   margin: 0 auto;
   padding-top: 60px;
   padding-bottom: 50px;
 }
 
 .appSection {
-  max-width: 500px;
   border: 1px solid white;
   padding: 0 20px 20px 20px;
   margin: 20px auto;
@@ -30,9 +38,9 @@ body {
 
 .button {
   width: 100%;
+  max-width: 100%;
   padding: 5px;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin: 5px auto;
   background-color: #024d83;
   border: 1px solid white;
 }
@@ -112,18 +120,17 @@ td,
 th {
   border: 1px solid white;
   padding: 10px;
+  min-width: 100px;
 }
 
 th {
   text-align: left;
-  /* white-space: nowrap; */
-  /* word-break: break-all; */
 }
 
 .navbar {
-  min-width: 350px;
   width: 95%;
-  max-width: 500px;
+  max-width: 600px;
+  min-width: 350px;
   position: fixed;
   height: 80px;
   top: 0px;
@@ -173,11 +180,6 @@ html {
   overflow-y: scroll;
 }
 
-.resultsTable {
-  max-width: 1000px;
-  min-width: 600px;
-}
-
 .no-wrap {
   white-space: nowrap;
 }
@@ -188,4 +190,8 @@ html {
 
 .table-final-score {
   font-size: 1.2em;
+}
+
+.table-final-score > td {
+  background-color: #0473c2;
 }

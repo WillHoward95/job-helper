@@ -22,13 +22,14 @@ const ProsOnboard = () => {
           jobs: JSON.parse(localStorage.getItem("job-helper-jobs")),
           pros: JSON.parse(localStorage.getItem("job-helper-pros")),
           cons: JSON.parse(localStorage.getItem("job-helper-cons")),
+          comparison: localStorage.getItem("job-helper-comparison"),
         })
       );
     }
   }, []);
 
   return (
-    <div>
+    <div className="appContainer">
       <NavBar />
       <div className="appSection">
         <p>
