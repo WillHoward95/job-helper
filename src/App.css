@@ -22,8 +22,8 @@ body {
 }
 
 .tableContainer {
-  min-width: 1000px;
-  width: inherit;
+  display: flex;
+  max-width: 1500px;
   margin: 0 auto;
   padding-top: 60px;
   padding-bottom: 50px;
@@ -36,9 +36,15 @@ body {
   background-color: #03416e;
 }
 
+.appSectionTable {
+  border: 1px solid white;
+  padding: 0 20px 20px 20px;
+  margin: 20px auto;
+  background-color: #03416e;
+}
+
 .button {
   width: 100%;
-  max-width: 100%;
   padding: 5px;
   margin: 5px auto;
   background-color: #024d83;
@@ -194,4 +200,8 @@ html {
 
 .table-final-score > td {
   background-color: #0473c2;
+}
+
+.table {
+  width: 100%;
 }

@@ -69,8 +69,8 @@ const ResultsTable = () => {
   return (
     <div className="tableContainer">
       <NavBar />
-      <div className="appSection">
-        <div className="appSection">
+      <div className="appSectionTable">
+        <div className="appSectionTable">
           <p>
             Now it's time to assess your options against those values. In my
             example, a perfect score would appear to be 18.
@@ -83,7 +83,7 @@ const ResultsTable = () => {
             in your life.
           </p>
         </div>
-        <table>
+        <table className="table">
           <thead>
             <tr>
               <th className="table-highlight" colSpan={2}>

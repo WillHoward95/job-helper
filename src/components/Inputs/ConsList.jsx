@@ -100,6 +100,8 @@ const ConsListInputs = () => {
           className="button"
           onClick={() => {
             setInputBoolean(!inputBoolean);
+            setNewConInput("");
+            setNewConWeight(undefined);
           }}
         >
           Cancel
