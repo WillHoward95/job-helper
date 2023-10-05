@@ -173,3 +173,12 @@ a:hover {
 html {
   overflow-y: scroll;
 }
+
+.resultsTable {
+  width: 100%;
+}
+
+.nobreak {
+  line-break: strict;
+  white-space: nowrap;
+}

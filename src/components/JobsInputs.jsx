@@ -19,6 +19,8 @@ const JobsInputs = () => {
   let [newComparisonInput, setNewComparisonInput] = useState("");
   const comparison = useSelector(selectComparisonTitle);
 
+  console.log(comparison);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
@@ -45,9 +47,11 @@ const JobsInputs = () => {
           Enter what you would like to compare e.g. Universities, Jobs etc.
         </h2>
         <textarea
+          autoFocus
           onInput={(e) => {
             setNewComparisonInput(e.target.value);
           }}
+          defaultValue={comparison}
           className="job-textarea add-job-textarea"
         ></textarea>
         <button

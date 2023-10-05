@@ -18,6 +18,13 @@ const Results = () => {
   const comparison = useSelector(selectComparisonTitle);
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  let singularComparison;
+
+  if (comparison[comparison.length - 1] === "s") {
+    singularComparison = comparison.slice(0, -1);
+  } else {
+    singularComparison = comparison;
+  }
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -87,10 +94,10 @@ const Results = () => {
           <p>Or click 'Back to Start' to start again from the beginning.</p>
         </div>
         <h1>Results</h1>
-        <table>
+        <table className="resultsTable">
           <thead>
             <tr>
-              <th>{comparison.slice(0, comparison.length - 1)}</th>
+              <th>{singularComparison}</th>
               <th>
                 Pros
                 <br />
@@ -139,6 +146,7 @@ const Results = () => {
               localStorage.setItem("job-helper-jobs", JSON.stringify(jobs));
               localStorage.setItem("job-helper-pros", JSON.stringify(pros));
               localStorage.setItem("job-helper-cons", JSON.stringify(cons));
+              localStorage.setItem("job-helper-comparison", comparison);
               notifySuccess();
             } catch (error) {
               console.log(error);

@@ -41,7 +41,7 @@ const CheckboxElementCon = (props) => {
                 addRemoveCon({
                   job: job,
                   con: con,
-                  weight: weight,
+                  weight: Number(weight),
                 })
               );
             }
