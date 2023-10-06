@@ -21,8 +21,6 @@ const JobsInputs = () => {
   const comparison = useSelector(selectComparisonTitle);
   const jobs = useSelector(selectJobs);
 
-  console.log(comparison);
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
@@ -78,7 +76,7 @@ const JobsInputs = () => {
           <button
             className="button main-button"
             onClick={() => {
-              if (jobs.length > 1) {
+              if (jobs.length > 0) {
                 navigate("/questionnaire");
               } else {
                 notify(

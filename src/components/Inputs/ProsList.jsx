@@ -20,8 +20,8 @@ const ProsList = () => {
     return counter;
   };
 
-  const notify = () => {
-    toast.error(`Please enter a title and a weight to add a pro`, {
+  const notify = (text) => {
+    toast.error(text, {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -31,6 +31,20 @@ const ProsList = () => {
       progress: undefined,
       theme: "colored",
     });
+  };
+
+  const alreadyIncludes = (pro) => {
+    let includes = [];
+    pros.map((item) => {
+      if (item.pro.toLowerCase() === pro.toLowerCase()) {
+        includes.push(pro);
+      }
+    });
+    if (includes.length > 0) {
+      return true;
+    } else {
+      return false;
+    }
   };
 
   return (
@@ -73,37 +87,52 @@ const ProsList = () => {
       ) : (
         <></>
       )}
-      <button
-        className="button add-button"
-        onClick={() => {
-          if (newProInput && newProWeight) {
-            dispatch(setNewPro({ pro: newProInput, weight: newProWeight }));
-          }
-          if (!newProInput || !newProWeight) {
-            if (inputBoolean) {
-              notify();
-            }
-          }
-          setInputBoolean(!inputBoolean);
-          setNewProInput("");
-          setNewProWeight(undefined);
-        }}
-      >
-        {inputBoolean ? "Save" : "Add"}
-      </button>
       {inputBoolean ? (
+        <div>
+          <button
+            className="button add-button"
+            onClick={() => {
+              if (alreadyIncludes(newProInput)) {
+                notify("You have entered a Pro that is already in the list");
+              } else {
+                if (newProInput && newProWeight) {
+                  dispatch(
+                    setNewPro({ pro: newProInput, weight: newProWeight })
+                  );
+                }
+                if (!newProInput || !newProWeight) {
+                  if (inputBoolean) {
+                    notify(`Please enter a title and a weight to add a pro`);
+                  }
+                }
+                setInputBoolean(!inputBoolean);
+                setNewProInput("");
+                setNewProWeight(undefined);
+              }
+            }}
+          >
+            Save
+          </button>
+          <button
+            className="button"
+            onClick={() => {
+              setInputBoolean(!inputBoolean);
+              setNewProInput("");
+              setNewProWeight(undefined);
+            }}
+          >
+            Cancel
+          </button>
+        </div>
+      ) : (
         <button
-          className="button"
+          className="button add-button"
           onClick={() => {
             setInputBoolean(!inputBoolean);
-            setNewProInput("");
-            setNewProWeight(undefined);
           }}
         >
-          Cancel
+          Add
         </button>
-      ) : (
-        <></>
       )}
       <div className="table-layout">
         <h2>Life Score:</h2>

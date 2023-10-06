@@ -20,8 +20,8 @@ const ConsListInputs = () => {
     return counter;
   };
 
-  const notify = () => {
-    toast.error(`Please enter a title and a weight to add a con`, {
+  const notify = (text) => {
+    toast.error(text, {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -31,6 +31,20 @@ const ConsListInputs = () => {
       progress: undefined,
       theme: "colored",
     });
+  };
+
+  const alreadyIncludes = (con) => {
+    let includes = [];
+    cons.map((item) => {
+      if (item.con.toLowerCase() === con.toLowerCase()) {
+        includes.push(con);
+      }
+    });
+    if (includes.length > 0) {
+      return true;
+    } else {
+      return false;
+    }
   };
 
   return (
@@ -77,37 +91,52 @@ const ConsListInputs = () => {
       ) : (
         <></>
       )}
-      <button
-        className="button add-button"
-        onClick={() => {
-          if (newConInput && newConWeight) {
-            dispatch(setNewCon({ con: newConInput, weight: newConWeight }));
-          }
-          if (!newConInput || !newConWeight) {
-            if (inputBoolean) {
-              notify();
-            }
-          }
-          setInputBoolean(!inputBoolean);
-          setNewConInput("");
-          setNewConWeight(undefined);
-        }}
-      >
-        {inputBoolean ? "Save" : "Add"}
-      </button>
       {inputBoolean ? (
+        <div>
+          <button
+            className="button add-button"
+            onClick={() => {
+              if (alreadyIncludes(newConInput)) {
+                notify("You have entered a Con that is already in the list");
+              } else {
+                if (newConInput && newConWeight) {
+                  dispatch(
+                    setNewCon({ con: newConInput, weight: newConWeight })
+                  );
+                }
+                if (!newConInput || !newConWeight) {
+                  if (inputBoolean) {
+                    notify(`Please enter a title and a weight to add a con`);
+                  }
+                }
+                setInputBoolean(!inputBoolean);
+                setNewConInput("");
+                setNewConWeight(undefined);
+              }
+            }}
+          >
+            Save
+          </button>
+          <button
+            className="button"
+            onClick={() => {
+              setInputBoolean(!inputBoolean);
+              setNewConInput("");
+              setNewConWeight(undefined);
+            }}
+          >
+            Cancel
+          </button>
+        </div>
+      ) : (
         <button
-          className="button"
+          className="button add-button"
           onClick={() => {
             setInputBoolean(!inputBoolean);
-            setNewConInput("");
-            setNewConWeight(undefined);
           }}
         >
-          Cancel
+          Add
         </button>
-      ) : (
-        <></>
       )}
       <div className="table-layout">
         <h2>Life Score:</h2>

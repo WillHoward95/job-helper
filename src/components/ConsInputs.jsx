@@ -41,7 +41,7 @@ const ConsInputs = () => {
       <button
         className="button main-button"
         onClick={() => {
-          if (cons.length > 1) {
+          if (cons.length > 0) {
             navigate("/jobsonboard");
           } else {
             notify();

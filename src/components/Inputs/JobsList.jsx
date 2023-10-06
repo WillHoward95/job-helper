@@ -17,8 +17,8 @@ const JobsListInputs = () => {
   let [newJobInput, setNewJobInput] = useState("");
   const comparison = useSelector(selectComparisonTitle);
 
-  const notify = () => {
-    toast.error(`Please enter a title`, {
+  const notify = (text) => {
+    toast.error(text, {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -28,6 +28,20 @@ const JobsListInputs = () => {
       progress: undefined,
       theme: "colored",
     });
+  };
+
+  const alreadyIncludes = (job) => {
+    let includes = [];
+    jobs.map((item) => {
+      if (item.job.toLowerCase() === job.toLowerCase()) {
+        includes.push(job);
+      }
+    });
+    if (includes.length > 0) {
+      return true;
+    } else {
+      return false;
+    }
   };
 
   return (
@@ -51,23 +65,30 @@ const JobsListInputs = () => {
             <button
               className="button add-button half-button"
               onClick={() => {
-                if (newJobInput) {
-                  dispatch(
-                    setNewJob({
-                      job: newJobInput,
-                      pros: [],
-                      cons: [],
-                      prosTotal: 0,
-                      consTotal: 0,
-                    })
+                if (alreadyIncludes(newJobInput)) {
+                  notify(
+                    "You have entered a comparison that is already in the list"
                   );
+                } else {
+                  if (newJobInput) {
+                    dispatch(
+                      setNewJob({
+                        job: newJobInput,
+                        pros: [],
+                        cons: [],
+                        prosTotal: 0,
+                        consTotal: 0,
+                      })
+                    );
+                    setNewJobInput("");
+                    setInputBoolean(!inputBoolean);
+                  }
                 }
+
                 // toast to notify if they haven't enter both a title and value
                 if (!newJobInput && inputBoolean) {
-                  notify();
+                  notify(`Please enter a title`);
                 }
-                setNewJobInput("");
-                setInputBoolean(!inputBoolean);
               }}
             >
               Save

@@ -41,7 +41,7 @@ const ProsInputs = () => {
       <button
         className="button main-button"
         onClick={() => {
-          if (pros.length > 1) {
+          if (pros.length > 0) {
             navigate("/consonboard");
           } else {
             notify();
