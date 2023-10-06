@@ -66,6 +66,9 @@ export const jobSlice = createSlice({
       if (action.payload.cons) {
         state.cons = action.payload.cons;
       }
+      if (action.payload.comparison) {
+        state.comparisonTitle = action.payload.comparison;
+      }
     },
     editInput: (state, action) => {
       if (action.payload.newJob) {

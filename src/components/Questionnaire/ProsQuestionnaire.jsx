@@ -12,13 +12,13 @@ const ProsQuestionnaire = () => {
         return (
           <div key={index}>
             <div className="table-layout">
-              <h3>Pro:</h3>
-              <h3>Value:</h3>
+              <h3>Pro: {item.pro}</h3>
+              <h3 className="nobreak">Value: {item.weight}</h3>
             </div>
-            <div className="table-layout">
+            {/* <div className="table-layout">
               <h3>{item.pro}</h3>
               <h3>{item.weight}</h3>
-            </div>
+            </div> */}
             <QuestionnaireElementPro pro={item.pro} weight={item.weight} />
           </div>
         );

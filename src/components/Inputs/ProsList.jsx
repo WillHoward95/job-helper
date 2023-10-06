@@ -96,6 +96,8 @@ const ProsList = () => {
           className="button"
           onClick={() => {
             setInputBoolean(!inputBoolean);
+            setNewProInput("");
+            setNewProWeight(undefined);
           }}
         >
           Cancel
