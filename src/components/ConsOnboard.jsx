@@ -27,20 +27,26 @@ const ConsOnboard = () => {
           considered.
         </p>
         <p>
-          <em>"The cost to set up a business is more than £10k."</em>
+          <blockquote>
+            <em>"The cost to set up a business is more than £10k."</em>
+          </blockquote>
         </p>
         <p>This is my maximum budget, so it scores 10.</p>
         <p>
-          <em>
-            "I need an income flow within 6 months, anything longer is a
-            problem".
-          </em>
+          <blockquote>
+            <em>
+              "I need an income flow within 6 months, anything longer is a
+              problem".
+            </em>
+          </blockquote>
         </p>
         <p>
           This is pretty important too but not a deal breaker, so it scores a 5.
         </p>
         <p>
-          <em>"The business must be based in a city."</em>
+          <blockquote>
+            <em>"The business must be based in a city."</em>
+          </blockquote>
         </p>
         <p>Not keen on this but it's only a small issue, so it scores a 2.</p>
       </div>

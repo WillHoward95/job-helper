@@ -6,6 +6,7 @@
   word-break: break-word;
   white-space: normal;
   font-family: "Josefin Sans", sans-serif;
+  line-height: 1.1em;
 }
 
 body {
@@ -181,4 +182,9 @@ html {
 .nobreak {
   line-break: strict;
   white-space: nowrap;
+}
+
+blockquote {
+  background-color: rgba(0, 0, 0, 0.25);
+  padding: 10px 10px 5px 10px;
 }

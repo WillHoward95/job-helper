@@ -91,7 +91,11 @@ const Results = () => {
             Or you can save your answers, so you can pick up where you left off
             next time you visit the site.
           </p>
-          <p>Or click 'Back to Start' to start again from the beginning.</p>
+          <p>
+            Or click 'Back to Start' to start again from the
+            beginning.&#40;Don't worry, everything you have entered so far will
+            still be there&#x29;
+          </p>
         </div>
         <h1>Results</h1>
         <table className="resultsTable">

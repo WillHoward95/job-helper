@@ -56,18 +56,24 @@ const ProsOnboard = () => {
           few things reads like this…
         </p>
         <p>
-          <em>
-            "I want to be in charge of my diary and what I do on a daily work
-            basis."
-          </em>
+          <blockquote>
+            <em>
+              "I want to be in charge of my diary and what I do on a daily work
+              basis."
+            </em>
+          </blockquote>
         </p>
         <p>My Score of importance for this is 10. </p>
         <p>
-          <em>"I hate wearing a suit, so NOT suited and booted"</em>
+          <blockquote>
+            <em>"I hate wearing a suit, so NOT suited and booted"</em>
+          </blockquote>
         </p>
         <p>My score for this is 6, its important but not a deal breaker. </p>
         <p>
-          <em>"To be able to work remotely from a foreign country."</em>
+          <blockquote>
+            <em>"To be able to work remotely from a foreign country."</em>
+          </blockquote>
         </p>
         <p>My score for this is 2. It would be nice but it isn’t essential.</p>
         <p>

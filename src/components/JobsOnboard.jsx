@@ -19,14 +19,14 @@ const JobsOnboard = () => {
           the different options you are considering.
         </p>
         <p>In my case it's 3 different business ideas. </p>
-        <ul>
-          <li>Catering Franchise costing £45k. Based in UK.</li>
-          <li>
-            Online Food Ingredients business that would cost £3k to build and
+        <blockquote>
+          <p>- Catering Franchise costing £45k. Based in UK.</p>
+          <p>
+            - Online Food Ingredients business that would cost £3k to build and
             stock.
-          </li>
-          <li>UK Food consultancy advising big businesses.</li>
-        </ul>
+          </p>
+          <p>- UK Food consultancy advising big businesses.</p>
+        </blockquote>
 
         <p>
           Yours might be schools, colleges, universities, courses, subjects to
