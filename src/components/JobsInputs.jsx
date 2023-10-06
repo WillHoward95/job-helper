@@ -8,6 +8,7 @@ import { useState } from "react";
 import {
   selectComparisonTitle,
   setComparisonTitle,
+  selectJobs,
 } from "../features/job/jobSlice";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -18,6 +19,7 @@ const JobsInputs = () => {
   const { pathname } = useLocation();
   let [newComparisonInput, setNewComparisonInput] = useState("");
   const comparison = useSelector(selectComparisonTitle);
+  const jobs = useSelector(selectJobs);
 
   console.log(comparison);
 
@@ -25,8 +27,8 @@ const JobsInputs = () => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  const notify = () => {
-    toast.error(`Please enter a title`, {
+  const notify = (text) => {
+    toast.error(text, {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -60,7 +62,7 @@ const JobsInputs = () => {
               dispatch(setComparisonTitle(newComparisonInput));
               setNewComparisonInput("");
             } else {
-              notify();
+              notify("Please enter a title");
             }
           }}
           className="button add-button"
@@ -76,7 +78,13 @@ const JobsInputs = () => {
           <button
             className="button main-button"
             onClick={() => {
-              navigate("/questionnaire");
+              if (jobs.length > 1) {
+                navigate("/questionnaire");
+              } else {
+                notify(
+                  `You must add at least one Comparison to progress through to the next page`
+                );
+              }
             }}
           >
             Begin questionnaire

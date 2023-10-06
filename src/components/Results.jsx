@@ -93,8 +93,8 @@ const Results = () => {
           </p>
           <p>
             Or if you want to go back and change some of your inputs, just click
-            one of the corresponding 'Back to...' buttons below&#40;Don't worry,
-            everything you have entered so far will still be there&#x29;
+            one of the corresponding 'Back to...' buttons below. &#40;Don't
+            worry, everything you have entered so far will still be there&#x29;
           </p>
         </div>
         <h1>Results</h1>
