@@ -92,9 +92,9 @@ const Results = () => {
             next time you visit the site.
           </p>
           <p>
-            Or click 'Back to Start' to start again from the
-            beginning.&#40;Don't worry, everything you have entered so far will
-            still be there&#x29;
+            Or if you want to go back and change some of your inputs, just click
+            one of the corresponding 'Back to...' buttons below&#40;Don't worry,
+            everything you have entered so far will still be there&#x29;
           </p>
         </div>
         <h1>Results</h1>
@@ -160,14 +160,32 @@ const Results = () => {
         >
           Save Answers
         </button>
-        <button
-          className="button main-button"
-          onClick={() => {
-            navigate("/prosinputs");
-          }}
-        >
-          Back to Start
-        </button>
+        <div className="table-layout">
+          <button
+            className="button main-button back-button"
+            onClick={() => {
+              navigate("/prosinputs");
+            }}
+          >
+            Back to Pros
+          </button>
+          <button
+            className="button main-button back-button back-button-middle"
+            onClick={() => {
+              navigate("/consinputs");
+            }}
+          >
+            Back to Cons
+          </button>
+          <button
+            className="button main-button back-button"
+            onClick={() => {
+              navigate("/jobsinputs");
+            }}
+          >
+            Back to <span className="nobreak">Comparisons</span>
+          </button>
+        </div>
         <ToastContainer pauseOnFocusLoss={false} />
       </div>
     </div>
