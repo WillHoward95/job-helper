@@ -1,7 +1,7 @@
 import { addRemovePro, selectJobs } from "../../features/job/jobSlice";
 import { useSelector, useDispatch } from "react-redux";
-import SmileyChecked from "../../emoticon-emotion-expression-face-smiley-2-svgrepo-com.svg";
-import SmileyUnchecked from "../../emoticon-emotion-expression-face-smiley-2-svgrepo-com unchecked.svg";
+import SmileyChecked from "../../faces/Smiley Clicked.svg";
+import SmileyUnchecked from "../../faces/Smiley Unclicked.svg";
 
 const CheckboxElement = (props) => {
   const dispatch = useDispatch();

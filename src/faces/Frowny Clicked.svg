@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37.08 37">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ffe059;
+      }
+
+      .cls-2 {
+        fill: #ff9f1e;
+      }
+
+      .cls-3 {
+        fill: #ffc500;
+      }
+
+      .cls-4 {
+        fill: none;
+        stroke-linecap: round;
+        stroke-width: 2px;
+      }
+
+      .cls-4, .cls-5 {
+        stroke: #090073;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-5 {
+        fill: #090073;
+      }
+    </style>
+  </defs>
+  <circle class="cls-3" cx="18.58" cy="18.5" r="18.5"/>
+  <path class="cls-4" d="m10.72,27.93c2.4-6.83,13.4-6.83,15.48,0"/>
+  <ellipse class="cls-5" cx="12.08" cy="12" rx="1.5" ry="2.5"/>
+  <ellipse class="cls-5" cx="25.08" cy="12" rx="1.5" ry="2.5"/>
+  <path class="cls-2" d="m.73,14.02c-.47,1.59-.73,3.27-.73,5.01,0,9.93,8.26,17.97,18.44,17.97,1.78,0,3.51-.25,5.14-.71C11.03,36.14.88,26.25.73,14.02Z"/>
+  <path class="cls-1" d="m14.66,1.43c10.74,0,19.77,7.27,22.33,17.1,0-.12,0-.23,0-.35C37,8.14,28.77,0,18.62,0,15.79,0,13.11.63,10.72,1.76c1.28-.22,2.6-.34,3.94-.34Z"/>
+</svg>

@@ -1,7 +1,7 @@
 import { addRemoveCon, selectJobs } from "../../features/job/jobSlice";
 import { useSelector, useDispatch } from "react-redux";
-import FrowneyChecked from "../../emoticon-expression-sad-smile-smiley-svgrepo-com.svg";
-import FrowneyUnchecked from "../../emoticon-expression-sad-smile-smiley-svgrepo-com unchecked.svg";
+import FrowneyChecked from "../../faces/Frowny Clicked.svg";
+import FrowneyUnchecked from "../../faces/Frowny Unclicked.svg";
 
 const CheckboxElementCon = (props) => {
   const dispatch = useDispatch();

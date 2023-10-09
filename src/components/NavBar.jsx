@@ -1,4 +1,4 @@
-import SmileyFace from "../emoticon-emotion-expression-face-smiley-2-svgrepo-com.svg";
+import SmileyFace from "../faces/Smiley Clicked.svg";
 
 const NavBar = () => {
   return (
@@ -6,7 +6,7 @@ const NavBar = () => {
       <a href="/">
         <h1>My Happy App</h1>
       </a>
-      <img src={SmileyFace} alt="Smiley Face" />
+      <img src={SmileyFace} alt="Smiley Face" className="nav-smiley" />
     </div>
   );
 };

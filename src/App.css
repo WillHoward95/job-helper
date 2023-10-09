@@ -143,6 +143,10 @@ a:hover {
   text-decoration: underline;
 }
 
+.nav-smiley {
+  width: 2.5em;
+}
+
 #cb {
   position: relative;
   z-index: 2;
@@ -153,10 +157,10 @@ a:hover {
 }
 
 .smiley {
-  width: 2.5em;
+  width: 1.8em;
   position: absolute;
-  top: 0px;
-  left: -4px;
+  top: 4px;
+  left: 2px;
 }
 
 .checkboxContainer {
