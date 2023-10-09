@@ -30,6 +30,8 @@ const Results = () => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
+  console.log(jobs);
+
   const notifySuccess = () => {
     toast.success(`Answers Saved`, {
       position: "top-right",

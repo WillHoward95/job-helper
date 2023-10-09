@@ -80,6 +80,7 @@ const ConsItem = (props) => {
                     newCon: newConInput,
                     oldCon: item.con,
                     newConWeight: newConWeight,
+                    oldConWeight: item.weight,
                   })
                 );
               } else if (newConInput) {
@@ -88,6 +89,7 @@ const ConsItem = (props) => {
                     newCon: newConInput,
                     oldCon: item.con,
                     newConWeight: item.weight,
+                    oldConWeight: item.weight,
                   })
                 );
               } else if (newConWeight) {
@@ -96,6 +98,7 @@ const ConsItem = (props) => {
                     newCon: item.con,
                     oldCon: item.con,
                     newConWeight: newConWeight,
+                    oldConWeight: item.weight,
                   })
                 );
               }

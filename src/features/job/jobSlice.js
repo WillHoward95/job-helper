@@ -87,6 +87,15 @@ export const jobSlice = createSlice({
 
         proObject.pro = action.payload.newPro;
         proObject.weight = action.payload.newProWeight;
+
+        state.jobs.map((item) => {
+          const indexOf = item.pros.findIndex((item) => {
+            return item === action.payload.oldPro;
+          });
+
+          item.pros.splice(indexOf, 1);
+          item.prosTotal -= action.payload.oldProWeight;
+        });
       }
     },
     editCons: (state, action) => {
@@ -100,6 +109,15 @@ export const jobSlice = createSlice({
         if (action.payload.newConWeight) {
           conObject.weight = action.payload.newConWeight;
         }
+
+        state.jobs.map((item) => {
+          const indexOf = item.pros.findIndex((item) => {
+            return item === action.payload.oldPro;
+          });
+
+          item.cons.splice(indexOf, 1);
+          item.consTotal -= action.payload.oldConWeight;
+        });
       }
     },
     deleteItem: (state, action) => {
@@ -155,16 +173,6 @@ export const jobSlice = createSlice({
     setComparisonTitle: (state, action) => {
       state.comparisonTitle = action.payload;
     },
-    removeOnDelete: (state, action) => {
-      state.jobs.map((item) => {
-        const indexOf = item.pros.findIndex((item) => {
-          return item === action.payload.pro;
-        });
-
-        item.pros.splice(indexOf, 1);
-        item.prosTotal -= action.payload.weight;
-      });
-    },
   },
 });
 
@@ -185,7 +193,6 @@ export const {
   deleteItem,
   removeProsCons,
   setComparisonTitle,
-  removeOnDelete,
 } = jobSlice.actions;
 
 export const selectJobs = (state) => state.job.jobs;

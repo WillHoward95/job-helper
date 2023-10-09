@@ -80,6 +80,7 @@ const ProItem = (props) => {
                     newPro: newProInput,
                     oldPro: item.pro,
                     newProWeight: newProWeight,
+                    oldProWeight: item.weight,
                   })
                 );
               } else if (newProInput) {
@@ -88,6 +89,7 @@ const ProItem = (props) => {
                     newPro: newProInput,
                     oldPro: item.pro,
                     newProWeight: item.weight,
+                    oldProWeight: item.weight,
                   })
                 );
               } else if (newProWeight) {
@@ -96,6 +98,7 @@ const ProItem = (props) => {
                     newPro: item.pro,
                     oldPro: item.pro,
                     newProWeight: newProWeight,
+                    oldProWeight: item.weight,
                   })
                 );
               }
