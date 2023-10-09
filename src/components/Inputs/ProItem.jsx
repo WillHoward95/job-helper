@@ -1,15 +1,44 @@
 import { useState } from "react";
 import { editPros, deleteItem } from "../../features/job/jobSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { selectPros } from "../../features/job/jobSlice";
 
 const ProItem = (props) => {
   const dispatch = useDispatch();
   const { index, item } = props;
   let [editBoolean, setEditBoolean] = useState(false);
-
+  const pros = useSelector(selectPros);
   let [newProInput, setNewProInput] = useState("");
   let [newProWeight, setNewProWeight] = useState();
+
+  const notify = (text) => {
+    toast.error(text, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  };
+
+  const alreadyIncludes = (pro) => {
+    let includes = [];
+    pros.map((item) => {
+      if (item.pro.toLowerCase() === pro.toLowerCase()) {
+        includes.push(pro);
+      }
+    });
+    if (includes.length > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  };
 
   return editBoolean ? (
     <div key={index} className="proConJobItem">
@@ -42,35 +71,39 @@ const ProItem = (props) => {
         <button
           className="button half-button"
           onClick={() => {
-            if (newProInput && newProWeight) {
-              dispatch(
-                editPros({
-                  newPro: newProInput,
-                  oldPro: item.pro,
-                  newProWeight: newProWeight,
-                })
-              );
-            } else if (newProInput) {
-              dispatch(
-                editPros({
-                  newPro: newProInput,
-                  oldPro: item.pro,
-                  newProWeight: item.weight,
-                })
-              );
-            } else if (newProWeight) {
-              dispatch(
-                editPros({
-                  newPro: item.pro,
-                  oldPro: item.pro,
-                  newProWeight: newProWeight,
-                })
-              );
-            }
+            if (alreadyIncludes(newProInput)) {
+              notify("You have entered a Pro that is already in the list");
+            } else {
+              if (newProInput && newProWeight) {
+                dispatch(
+                  editPros({
+                    newPro: newProInput,
+                    oldPro: item.pro,
+                    newProWeight: newProWeight,
+                  })
+                );
+              } else if (newProInput) {
+                dispatch(
+                  editPros({
+                    newPro: newProInput,
+                    oldPro: item.pro,
+                    newProWeight: item.weight,
+                  })
+                );
+              } else if (newProWeight) {
+                dispatch(
+                  editPros({
+                    newPro: item.pro,
+                    oldPro: item.pro,
+                    newProWeight: newProWeight,
+                  })
+                );
+              }
 
-            setNewProInput("");
-            setNewProWeight(undefined);
-            setEditBoolean(!editBoolean);
+              setNewProInput("");
+              setNewProWeight(undefined);
+              setEditBoolean(!editBoolean);
+            }
           }}
         >
           Save
