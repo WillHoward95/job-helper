@@ -116,13 +116,31 @@ export const jobSlice = createSlice({
         });
 
         state.pros.splice(indexOf, 1);
+
+        state.jobs.map((item) => {
+          const indexOf = item.pros.findIndex((item) => {
+            return item === action.payload.pro;
+          });
+
+          item.pros.splice(indexOf, 1);
+          item.prosTotal -= action.payload.weight;
+        });
       }
       if (action.payload.con) {
         const indexOf = state.cons.findIndex((item) => {
-          return item.con === action.payload.com;
+          return item.con === action.payload.con;
         });
 
         state.cons.splice(indexOf, 1);
+
+        state.jobs.map((item) => {
+          const indexOf = item.cons.findIndex((item) => {
+            return item === action.payload.con;
+          });
+
+          item.cons.splice(indexOf, 1);
+          item.consTotal -= action.payload.weight;
+        });
       }
     },
     removeProsCons: (state) => {
@@ -136,6 +154,16 @@ export const jobSlice = createSlice({
     },
     setComparisonTitle: (state, action) => {
       state.comparisonTitle = action.payload;
+    },
+    removeOnDelete: (state, action) => {
+      state.jobs.map((item) => {
+        const indexOf = item.pros.findIndex((item) => {
+          return item === action.payload.pro;
+        });
+
+        item.pros.splice(indexOf, 1);
+        item.prosTotal -= action.payload.weight;
+      });
     },
   },
 });
@@ -157,6 +185,7 @@ export const {
   deleteItem,
   removeProsCons,
   setComparisonTitle,
+  removeOnDelete,
 } = jobSlice.actions;
 
 export const selectJobs = (state) => state.job.jobs;

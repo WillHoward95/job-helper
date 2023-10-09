@@ -140,7 +140,7 @@ const ConsItem = (props) => {
         <button
           className="button half-button"
           onClick={() => {
-            dispatch(deleteItem({ con: item.con }));
+            dispatch(deleteItem({ con: item.con, weight: item.weight }));
           }}
         >
           Delete
