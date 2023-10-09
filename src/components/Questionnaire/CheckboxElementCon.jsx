@@ -26,9 +26,9 @@ const CheckboxElementCon = (props) => {
     <div className="checkboxContainer">
       <div>
         {isChecked ? (
-          <img src={FrowneyChecked} alt="React Logo" className="smiley" />
+          <img src={FrowneyChecked} className="smiley" />
         ) : (
-          <img src={FrowneyUnchecked} alt="React Logo" className="smiley" />
+          <img src={FrowneyUnchecked} className="smiley" />
         )}
 
         <input
