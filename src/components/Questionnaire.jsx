@@ -32,14 +32,32 @@ const Questionnaire = () => {
       >
         Get Results
       </button>
-      <button
-        className="button main-button"
-        onClick={() => {
-          navigate("/");
-        }}
-      >
-        Back to Start
-      </button>
+      <div className="table-layout">
+        <button
+          className="button main-button back-button"
+          onClick={() => {
+            navigate("/prosinputs");
+          }}
+        >
+          Back to Pros
+        </button>
+        <button
+          className="button main-button back-button back-button-middle"
+          onClick={() => {
+            navigate("/consinputs");
+          }}
+        >
+          Back to Cons
+        </button>
+        <button
+          className="button main-button back-button"
+          onClick={() => {
+            navigate("/jobsinputs");
+          }}
+        >
+          Back to <span className="nobreak">Comparisons</span>
+        </button>
+      </div>
     </div>
   );
 };
