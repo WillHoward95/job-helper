@@ -103,7 +103,7 @@ const Results = () => {
         <table className="resultsTable">
           <thead>
             <tr>
-              <th>{singularComparison}</th>
+              <th className="comparisonTitle">{comparison}</th>
               <th>
                 Pros
                 <br />

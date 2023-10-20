@@ -183,6 +183,10 @@ html {
   width: 100%;
 }
 
+.comparisonTitle {
+  white-space: wrap;
+}
+
 .nobreak {
   line-break: strict;
   white-space: nowrap;
