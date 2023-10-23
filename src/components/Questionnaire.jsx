@@ -3,10 +3,30 @@ import ConsQuestionnaire from "./Questionnaire/ConsQuestionnaire";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import NavBar from "./NavBar";
+import { selectUserObj } from "../features/job/jobSlice";
+import { useSelector } from "react-redux";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Questionnaire = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const userObj = useSelector(selectUserObj);
+
+  console.log(userObj);
+
+  const notify = (text) => {
+    toast.error(text, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -27,7 +47,26 @@ const Questionnaire = () => {
       <button
         className="button main-button"
         onClick={() => {
-          navigate("/results");
+          if (
+            localStorage.getItem("counter") &&
+            localStorage.getItem("counter") > 0
+          ) {
+            localStorage.setItem(
+              "counter",
+              localStorage.getItem("counter") - 1
+            );
+            navigate("/results");
+          } else if (
+            localStorage.getItem("counter") &&
+            localStorage.getItem("counter") < 1
+          ) {
+            notify(
+              "You have run out of free uses, please contact alan@brightspark.coach for more"
+            );
+          } else {
+            localStorage.setItem("counter", userObj.uses - 1);
+            navigate("/results");
+          }
         }}
       >
         Get Results
@@ -58,6 +97,7 @@ const Questionnaire = () => {
           Back to <span className="nobreak">Comparisons</span>
         </button>
       </div>
+      <ToastContainer pauseOnFocusLoss={false} />
     </div>
   );
 };

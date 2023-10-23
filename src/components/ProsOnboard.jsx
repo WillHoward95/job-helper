@@ -55,26 +55,26 @@ const ProsOnboard = () => {
           In my business life, now after many years working for others my first
           few things reads like this…
         </p>
-        <p>
-          <blockquote>
-            <em>
-              "I want to be in charge of my diary and what I do on a daily work
-              basis."
-            </em>
-          </blockquote>
-        </p>
+
+        <blockquote>
+          <em>
+            "I want to be in charge of my diary and what I do on a daily work
+            basis."
+          </em>
+        </blockquote>
+
         <p>My Score of importance for this is 10. </p>
-        <p>
-          <blockquote>
-            <em>"I hate wearing a suit, so NOT suited and booted"</em>
-          </blockquote>
-        </p>
+
+        <blockquote>
+          <em>"I hate wearing a suit, so NOT suited and booted"</em>
+        </blockquote>
+
         <p>My score for this is 6, its important but not a deal breaker. </p>
-        <p>
-          <blockquote>
-            <em>"To be able to work remotely from a foreign country."</em>
-          </blockquote>
-        </p>
+
+        <blockquote>
+          <em>"To be able to work remotely from a foreign country."</em>
+        </blockquote>
+
         <p>My score for this is 2. It would be nice but it isn’t essential.</p>
         <p>
           SO OVER TO YOU. List all the things you want in your life that are

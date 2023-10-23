@@ -26,28 +26,28 @@ const ConsOnboard = () => {
           problem for me and a few that are just annoying but need to be
           considered.
         </p>
-        <p>
-          <blockquote>
-            <em>"The cost to set up a business is more than £10k."</em>
-          </blockquote>
-        </p>
+
+        <blockquote>
+          <em>"The cost to set up a business is more than £10k."</em>
+        </blockquote>
+
         <p>This is my maximum budget, so it scores 10.</p>
-        <p>
-          <blockquote>
-            <em>
-              "I need an income flow within 6 months, anything longer is a
-              problem".
-            </em>
-          </blockquote>
-        </p>
+
+        <blockquote>
+          <em>
+            "I need an income flow within 6 months, anything longer is a
+            problem".
+          </em>
+        </blockquote>
+
         <p>
           This is pretty important too but not a deal breaker, so it scores a 5.
         </p>
-        <p>
-          <blockquote>
-            <em>"The business must be based in a city."</em>
-          </blockquote>
-        </p>
+
+        <blockquote>
+          <em>"The business must be based in a city."</em>
+        </blockquote>
+
         <p>Not keen on this but it's only a small issue, so it scores a 2.</p>
       </div>
       <button

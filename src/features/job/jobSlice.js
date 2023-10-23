@@ -4,6 +4,7 @@ const initialState = {
   jobs: [],
   pros: [],
   cons: [],
+  auth: false,
 };
 
 export const jobSlice = createSlice({
@@ -95,6 +96,7 @@ export const jobSlice = createSlice({
 
           item.pros.splice(indexOf, 1);
           item.prosTotal -= action.payload.oldProWeight;
+          return 1;
         });
       }
     },
@@ -117,6 +119,7 @@ export const jobSlice = createSlice({
 
           item.cons.splice(indexOf, 1);
           item.consTotal -= action.payload.oldConWeight;
+          return 1;
         });
       }
     },
@@ -142,6 +145,7 @@ export const jobSlice = createSlice({
 
           item.pros.splice(indexOf, 1);
           item.prosTotal -= action.payload.weight;
+          return 1;
         });
       }
       if (action.payload.con) {
@@ -158,6 +162,7 @@ export const jobSlice = createSlice({
 
           item.cons.splice(indexOf, 1);
           item.consTotal -= action.payload.weight;
+          return 1;
         });
       }
     },
@@ -172,6 +177,12 @@ export const jobSlice = createSlice({
     },
     setComparisonTitle: (state, action) => {
       state.comparisonTitle = action.payload;
+    },
+    setUserObj: (state, action) => {
+      state.userObj = action.payload;
+    },
+    setAuth: (state, action) => {
+      state.auth = action.payload;
     },
   },
 });
@@ -193,11 +204,15 @@ export const {
   deleteItem,
   removeProsCons,
   setComparisonTitle,
+  setUserObj,
+  setAuth,
 } = jobSlice.actions;
 
 export const selectJobs = (state) => state.job.jobs;
 export const selectPros = (state) => state.job.pros;
 export const selectCons = (state) => state.job.cons;
 export const selectComparisonTitle = (state) => state.job.comparisonTitle;
+export const selectUserObj = (state) => state.job.userObj;
+export const selectAuth = (state) => state.job.auth;
 
 export default jobSlice.reducer;
